@@ -1,0 +1,271 @@
+/* MARQIA LP 雛形（モバイルファースト） */
+:root {
+  --green: #2B827D;
+  --green-dark: #1C6965;
+  --gold: #E8A33D;       /* アクセント（琥珀）。飾り専用。文字色には使わない */
+  --aqua: #A8D5DC;
+  --sea: #06BBC4;        /* 海の水色（ヒーロー画像から採色）。白地の文字には使わない */
+  --bg: #FAF8F3;
+  --text: #2B2B2B;
+  --muted: #5A5A5A;
+  --wood: #4A3B2E;       /* プレースホルダー用の濃い木色（仮） */
+  --font-head: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --font-body: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+h1, h2, h3 { font-family: var(--font-head); font-weight: 500; line-height: 1.4; }
+h2 { font-size: clamp(1.5rem, 5vw, 2rem); margin: 0 0 1rem; }
+h2::after { content: ""; display: block; width: 2.5rem; height: 2px; background: var(--sea); margin-top: .5rem; }
+h3 { font-size: 1.2rem; margin: .25rem 0 .5rem; }
+h4 { font-size: .9rem; margin: 1rem 0 .25rem; color: var(--green); }
+
+.container { width: min(100% - 2.5rem, 64rem); margin-inline: auto; }
+.sp { display: inline; }
+
+/* ヘッダー */
+section[id] { scroll-margin-top: 4.5rem; }  /* ページ内リンクで見出しが固定ヘッダーに隠れないように */
+.site-header { position: sticky; top: 0; z-index: 10; background: rgba(250, 248, 243, .95); border-bottom: 1px solid #e6e1d6; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; padding: .75rem 0; }
+.logo { font-family: "Cormorant Garamond", serif; font-weight: 300; font-size: 1.2rem; letter-spacing: .2em; text-transform: uppercase; color: var(--green); text-decoration: none; }
+
+/* ボタン */
+.btn { display: inline-block; min-height: 44px; padding: .75rem 1.5rem; border-radius: 2px; text-decoration: none; font-weight: 600; }
+.btn-primary { background: var(--green); color: #fff; }
+.btn-primary:hover, .btn-primary:focus-visible { background: var(--green-dark); }
+.btn-sm { padding: .5rem 1rem; font-size: .9rem; }
+.btn-lg { padding: 1rem 2.5rem; }
+
+/* プレースホルダー画像（すべて仮） */
+.placeholder {
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  color: #f3eee4; font-size: .85rem; padding: 1rem;
+  background:
+    repeating-linear-gradient(135deg, rgba(255,255,255,.04) 0 12px, transparent 12px 24px),
+    linear-gradient(180deg, #6f8b84 0%, #47605a 55%, var(--wood) 100%);
+}
+.placeholder-photo { width: 8rem; aspect-ratio: 1; border-radius: 50%; flex-shrink: 0; }
+
+/* ヒーロー */
+.hero-text { position: relative; padding: 3.5rem 0; }
+.hero-card { background: rgba(255, 255, 255, .88); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); border-radius: 16px; border-top: 4px solid var(--sea); padding: 1.75rem 1.5rem; max-width: 40rem; box-shadow: 0 8px 30px rgba(0, 60, 70, .18); }
+.hero h1 { font-size: clamp(1.9rem, 7vw, 3rem); margin: 0 0 1rem; }
+.hero .sub { margin: 0 0 .75rem; }
+.hero .concept { font-family: var(--font-head); color: var(--green); margin: 0 0 1.5rem; }
+
+/* セクション */
+.section { padding: 3.5rem 0; }
+.section-tint { background: #eaf7f8; }
+.lead { color: var(--muted); }
+.sub-h { margin-top: 2rem; }
+
+.grid { display: grid; gap: 1rem; }
+.card { background: #fff; border: 1px solid #e6e1d6; border-radius: 16px; padding: 1.25rem; overflow: hidden; }
+.card ul { margin: 0; padding-left: 1.2rem; }
+.card-training { background: #f3fafb; border-color: var(--sea); }
+
+.org-head { border-left: 3px solid var(--gold); padding: .5rem 1rem; margin: 1.5rem 0 1rem; font-family: var(--font-head); font-size: 1.1rem; }
+.org-head span { display: block; font-family: var(--font-body); font-size: .85rem; color: var(--muted); }
+
+.status { display: inline-block; font-size: .75rem; padding: .1rem .6rem; border-radius: 999px; margin: 0; }
+.status-joined { background: var(--green); color: #fff; }
+.status-done { border: 1px solid var(--green); color: var(--green); }
+.status-training { background: var(--sea); color: var(--text); }
+
+.dont li::marker { content: "× "; color: var(--green); }
+.todo { color: #8a6d2f; font-style: italic; }
+.tag { display: inline-block; font-size: .7rem; color: var(--muted); border: 1px solid #d8d2c4; border-radius: 2px; padding: 0 .4rem; }
+.notice { margin-top: 1rem; font-size: .9rem; border: 1px solid var(--gold); border-radius: 12px; padding: .75rem 1rem; background: #fff; }
+
+.hire-list { list-style: none; padding: 0; margin: 0; }
+.hire-list li { padding: .75rem 0; border-bottom: 1px solid #e6e1d6; }
+
+.profile { display: flex; flex-direction: column; gap: 1.5rem; align-items: flex-start; }
+.name { font-family: var(--font-head); font-size: 1.3rem; margin: 0; }
+.name span { display: block; font-family: var(--font-body); font-size: .85rem; color: var(--muted); }
+
+.final-cta { text-align: center; }
+.final-cta h2::after { margin-inline: auto; }
+
+.site-footer { padding: 2rem 0; font-size: .8rem; color: var(--muted); border-top: 1px solid #e6e1d6; }
+
+/* PC */
+@media (min-width: 768px) {
+  .sp { display: none; }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .profile { flex-direction: row; }
+}
+.role { margin: 0; font-size: .85rem; color: var(--muted); }
+
+/* 実画像（生成AI製・Gemini） */
+.hero { position: relative; }
+.hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.change { margin: .25rem 0 .75rem; font-size: .95rem; border-left: 3px solid var(--gold); padding-left: .75rem; }
+
+/* トレードAIチーム WAKE（このカードだけ濃紺） */
+.card-wake { background: #0F1E33; border-color: #0F1E33; color: #EEF2F6; }
+.card-wake h3 { color: #fff; }
+.card-wake h4 { color: var(--aqua); margin-top: 0; }
+.card-wake p { margin: 0; font-size: .9rem; }
+.wake-logo { display: block; width: min(100%, 16rem); height: auto; margin-bottom: .5rem; }
+.wake-command { border: 1px solid var(--gold); border-radius: 12px; padding: .75rem 1rem; margin: 1rem 0; text-align: center; }
+.wake-role { border: 1px solid rgba(168, 213, 220, .35); border-radius: 12px; padding: .75rem 1rem; }
+
+/* 相談の流れ */
+.flow { list-style: none; padding: 0; margin: 0; display: grid; gap: .75rem; }
+.flow li { display: flex; align-items: center; gap: .75rem; background: #fff; border: 1px solid #e6e1d6; border-radius: 16px; padding: 1rem; font-family: var(--font-head); font-size: 1.1rem; }
+.flow span { flex-shrink: 0; width: 2rem; height: 2rem; border-radius: 50%; background: var(--green); color: #fff; display: grid; place-items: center; font-family: var(--font-body); font-size: .9rem; }
+
+@media (min-width: 768px) {
+  .hero-text { padding: 7rem 0; }
+  .hero-card { padding: 2.5rem 2.75rem; }
+  .logo { font-size: 1.5rem; }
+  .flow { grid-template-columns: repeat(3, 1fr); }
+}
+.ai-note { margin: 0 0 .25rem; font-size: .7rem; }
+
+/* 研修中：スマホでも2列の小さいカード */
+.grid-training { grid-template-columns: repeat(2, 1fr); gap: .5rem; }
+.grid-training .card-training { padding: .6rem .75rem; }
+.grid-training .card-training h3 { font-size: .9rem; margin: .25rem 0 0; }
+.grid-training .role { font-size: .7rem; line-height: 1.5; }
+.grid-training .status { font-size: .65rem; padding: 0 .5rem; }
+@media (min-width: 768px) {
+  .grid-training { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .grid-training .card-training { padding: 1rem 1.25rem; }
+  .grid-training .card-training h3 { font-size: 1.1rem; }
+  .grid-training .role { font-size: .85rem; }
+}
+.nowrap { white-space: nowrap; }
+
+/* サービス */
+.service-group h3 { color: var(--green); border-bottom: 2px solid var(--sea); padding-bottom: .25rem; display: inline-block; }
+.service-group ul { margin-top: .5rem; }
+
+/* AI社員アイコン（角丸の正方形・白背景のまま） */
+.staff-head { display: flex; align-items: center; gap: 1rem; margin: .5rem 0 .25rem; }
+.staff-head h3 { margin: 0; font-size: 1.3rem; }
+.staff-icon { flex-shrink: 0; width: 96px; height: 96px; border-radius: 16px; background: #fff; border: 1px solid #e6e1d6; object-fit: cover; }
+.grid-training .staff-icon { width: 72px; height: 72px; border-radius: 12px; }
+@media (min-width: 768px) {
+  .staff-icon { width: 120px; height: 120px; }
+  .grid-training .staff-icon { width: 80px; height: 80px; }
+}
+
+/* ヒーロー見出し：スマホは3行、PCは可能なら2行 */
+.hero h1.hero-title { font-size: clamp(1.5rem, 6.2vw, 2.6rem); }
+.hero-title span { display: block; white-space: nowrap; }
+@media (min-width: 768px) {
+  .hero-title span { display: inline; }
+  .hero-title span:nth-child(2)::after { content: ""; display: block; }
+}
+
+/* 研修中：スマホはアイコンを名前の上に。名前は指定位置でだけ折る */
+.grid-training h3 { word-break: keep-all; overflow-wrap: anywhere; }
+.grid-training .staff-head { flex-direction: column; align-items: flex-start; gap: .25rem; }
+
+/* WAKE：非売品の注記 */
+.wake-note { font-size: .75rem !important; color: var(--aqua); margin: -.25rem 0 .5rem !important; }
+
+/* 代表写真 */
+.profile-photo { width: 8rem; height: 8rem; border-radius: 50%; object-fit: cover; object-position: 50% 35%; flex-shrink: 0; border: 3px solid #fff; box-shadow: 0 4px 16px rgba(0, 60, 70, .15); }
+@media (min-width: 768px) { .profile-photo { width: 10rem; height: 10rem; } }
+
+/* 研修中カード：アイコンが主役 */
+.grid-training .staff-head { gap: .4rem; margin-top: .4rem; }
+.grid-training .card-training { text-align: left; }
+
+/* サービスの説明 */
+.service-group li { margin-bottom: .9rem; }
+.service-group li:last-child { margin-bottom: 0; }
+.service-name { font-weight: 600; word-break: keep-all; overflow-wrap: anywhere; }  /* 「・」「/」の位置でだけ折り返す */
+.service-sub { display: block; font-weight: 400; font-size: .9rem; color: var(--muted); word-break: normal; }
+.service-desc { margin: .2rem 0 0; font-size: .85rem; line-height: 1.7; color: var(--muted); }
+
+/* 代表の経歴 */
+.name .kana { display: inline; font-size: .85rem; margin-left: .25rem; color: var(--muted); }
+.bio { margin: .75rem 0 0; font-size: .95rem; }
+
+/* 入社済み：スマホ1列、PC3列 */
+.grid-joined { grid-template-columns: 1fr; }
+@media (min-width: 768px) {
+  .grid-joined { grid-template-columns: repeat(3, 1fr); }  /* 入社済み6体：3×2 */
+  .grid-joined .staff-icon { width: 120px; height: 120px; }
+}
+.grid-joined h3 { word-break: keep-all; overflow-wrap: anywhere; }
+.staff-role { margin: .25rem 0 0; font-size: .85rem; color: var(--muted); }
+
+.staff-note { margin: 1rem 0 0; font-size: .75rem; color: var(--muted); border-top: 1px solid #e6e1d6; padding-top: .6rem; }
+
+
+/* 役職の定義（組織図の冒頭）：スマホは縦に4段、PCは表 */
+.rank-def { background: #fff; border: 1px solid #e6e1d6; border-radius: 16px; padding: 1.25rem; margin: 1.5rem 0 0; }
+.rank-def h3 { margin: 0 0 .75rem; font-size: 1.15rem; color: var(--green); }
+.stars { color: var(--gold); letter-spacing: .05em; margin-right: .4rem; }
+.stars .off { color: #cfcfcf; }
+.rank-table { width: 100%; border-collapse: collapse; }
+.rank-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.rank-table tr { display: block; padding: .6rem 0; border-top: 1px solid #eee9df; }
+.rank-table tbody tr:first-child { border-top: 0; padding-top: 0; }
+.rank-table th, .rank-table td { display: block; text-align: left; padding: 0; }
+.rank-table tbody th { font-family: var(--font-head); font-weight: 500; font-size: 1.05rem; }
+.rank-table td { font-size: .9rem; }
+.rank-final { margin: .75rem 0 0; padding-top: .75rem; border-top: 1px solid #e6e1d6; font-size: .85rem; color: var(--muted); }
+@media (min-width: 768px) {
+  .rank-def { padding: 1.5rem 2rem; }
+  .rank-table thead { position: static; width: auto; height: auto; overflow: visible; clip: auto; }
+  .rank-table tr { display: table-row; padding: 0; }
+  .rank-table th, .rank-table td { display: table-cell; padding: .6rem .75rem; border-top: 1px solid #eee9df; vertical-align: middle; }
+  .rank-table thead th { border-top: 0; font-size: .8rem; font-weight: 600; color: var(--muted); padding-top: 0; }
+  .rank-table tbody th { width: 12rem; white-space: nowrap; }
+  .rank-table td { font-size: .95rem; }
+}
+
+/* 入社済みカード：役職バッジ（名前より控えめ） */
+.staff-name { display: flex; flex-direction: column; gap: .2rem; min-width: 0; }
+.rank-badge { margin: 0; font-size: .75rem; color: var(--muted); line-height: 1.4; }
+.rank-badge .stars { margin-right: .3rem; }
+
+/* 次の昇進：今後の予定なのでグレーの点線枠で区別 */
+.grid-joined .staff { display: flex; flex-direction: column; }
+.next-rank { margin-top: auto; padding-top: 1rem; }
+.next-rank h4 { margin: 0 0 .25rem; color: var(--muted); font-weight: 600; font-size: .8rem; }
+.next-rank p { margin: 0; padding: .5rem .75rem; border: 1px dashed #cfcfcf; border-radius: 10px; font-size: .85rem; line-height: 1.6; color: var(--muted); background: #fafafa; }
+.grid-joined .staff > ul { margin-bottom: .25rem; }
+@media (min-width: 768px) {
+  .grid-joined { grid-auto-rows: 1fr; }  /* 5体のカードの高さをそろえる */
+}
+.grid-joined .staff > .status { align-self: flex-start; }
+
+/* 次の昇進の枠をカードの下端にそろえる（注記は担当の下へ移動） */
+.grid-joined .staff-note { margin: .4rem 0 0; border-top: 0; padding-top: 0; }
+.grid-joined .next-rank { padding-top: 1.25rem; }
+
+/* 導入実績 */
+.work { display: flex; flex-direction: column; height: 100%; }
+.work-name { font-size: 1.15rem; margin: 0 0 .5rem; }
+.work-name a { color: var(--green); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .2em; }
+.work-name a:hover, .work-name a:focus-visible { text-decoration-thickness: 2px; }
+.work-name .ext { display: inline-block; margin-left: .25rem; font-size: .85em; text-decoration: none; }
+.work-desc { margin: 0 0 1rem; font-size: .9rem; color: var(--muted); }
+.work-facts { margin: 0 0 1rem; display: grid; gap: .5rem; }
+.work-facts div { display: grid; grid-template-columns: 2.5rem 1fr; gap: .5rem; align-items: start; }
+.work-facts dt { font-size: .75rem; font-weight: 600; color: var(--green); background: #eaf7f8; border-radius: 999px; text-align: center; padding: .1rem 0; margin-top: .2rem; }
+.work-facts dd { margin: 0; font-size: .95rem; }
+.work-num { display: block; font-family: var(--font-head); font-size: clamp(1.5rem, 5vw, 2rem); line-height: 1.3; color: var(--green-dark); white-space: nowrap; }  /* 成果の数字：見出しサイズ */
+.work-num-note { display: block; margin-top: .25rem; font-size: 1rem; }
+.work-result > .work-num-note:only-child { margin-top: 0; }  /* 数字なしの成果は本文だけ */
+.work-result { word-break: keep-all; overflow-wrap: anywhere; }  /* 区切り（<wbr>）の位置でだけ折り返す */
+.work .status { margin-top: auto; align-self: flex-start; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
