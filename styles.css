@@ -20,6 +20,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
+img { max-width: 100%; height: auto; }  /* 画像がコンテナからはみ出さないように */
 
 body {
   margin: 0;
@@ -284,15 +285,15 @@ section[id] { scroll-margin-top: 4.5rem; }  /* ページ内リンクで見出し
 .hire-types, .learn-list { display: grid; gap: .9rem; }
 .learn-list li { margin-bottom: 0; }
 .hire-types li { margin-bottom: 0; }
-.entrust-grow { background: var(--gold-tint); border: 2px solid var(--gold); border-radius: 14px; padding: 1.1rem 1.1rem 1.25rem; margin-top: 1.25rem; }
-.grow-title { margin: 0 0 1rem; font-family: var(--font-head); font-weight: 500; font-size: clamp(1.3rem, 4.6vw, 1.6rem); line-height: 1.45; color: var(--green-dark); word-break: keep-all; overflow-wrap: anywhere; }
+.entrust-grow { background: var(--gold-tint); border: 3px solid var(--gold); border-radius: 14px; padding: 1.1rem 1.1rem 1.25rem; margin-top: 1.25rem; }
+.grow-title { margin: 0 0 1.1rem; font-family: var(--font-body); font-weight: 700; font-size: clamp(1.4rem, 5.2vw, 1.9rem); line-height: 1.45; color: var(--green-dark); word-break: keep-all; overflow-wrap: anywhere; }
 .hr-duties { list-style: none; padding: 0 !important; margin: 0; display: grid; gap: .6rem; counter-reset: duty; }
-.hr-duties li { margin: 0 !important; background: #fff; border-radius: 10px; padding: .7rem .9rem; counter-increment: duty; }
-.hr-duties strong { display: block; color: var(--green-dark); font-size: .95rem; }
+.hr-duties li { margin: 0 !important; background: #fff; border: 1px solid rgba(235, 187, 69, .55); border-radius: 12px; padding: .8rem 1rem .9rem; counter-increment: duty; }
+.hr-duties strong { display: block; color: var(--green-dark); font-size: 1rem; font-weight: 700; }
 .hr-duties strong::before { content: counter(duty) ". "; color: var(--green); }
-.hr-duties span { display: block; margin-top: .15rem; font-size: .85rem; line-height: 1.7; color: var(--text); }
+.hr-duties span { display: block; margin-top: .35rem; font-size: .85rem; line-height: 1.7; color: var(--text); }
 .final-say { margin: 1rem 0 0; padding-top: .9rem; border-top: 1px solid rgba(60, 111, 106, .25); font-size: .9rem; }
-.final-say strong { display: block; font-family: var(--font-head); font-weight: 500; font-size: 1.15rem; color: var(--green-dark); }
+.final-say strong { display: block; font-weight: 700; font-size: 1.15rem; color: var(--green-dark); }
 @media (min-width: 768px) {
   .learn-list { grid-template-columns: 1fr 1fr; gap: 1.25rem 2rem; }
   .hire-types { grid-template-columns: 1fr 1fr; gap: 1.25rem 2rem; }
@@ -310,7 +311,8 @@ section[id] { scroll-margin-top: 4.5rem; }  /* ページ内リンクで見出し
 .load-3 { width: 66%; max-width: 8rem; }
 .load-2 { width: 40%; max-width: 4.8rem; }
 .load-1 { width: 15%; max-width: 1.8rem; }
-.rank-promote { margin: .9rem 0 0; font-size: .9rem; }
+.rank-promote { margin: 1rem 0 0; padding: .9rem 1.1rem; background: var(--gold-tint); border-left: 6px solid var(--gold); border-radius: 0 12px 12px 0; font-size: .92rem; line-height: 1.8; }
+.rank-promote strong { display: block; margin-bottom: .2rem; font-size: 1.05rem; font-weight: 700; color: var(--green-dark); }
 @media (min-width: 768px) {
   .rank-table td[data-label]::before { content: none; }
   .rank-table td + td { margin-top: 0; }
