@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Noto+Sans+JP:wght@400;600;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
   <!-- 更新したら v= を変える（ブラウザに古いCSSが残るのを防ぐ） -->
-  <link rel="stylesheet" href="styles.css?v=20261012b" />
+  <link rel="stylesheet" href="styles.css?v=20261013c" />
 </head>
 <body>
   <header class="site-header">
@@ -88,7 +88,7 @@
         <p class="lead">判断するのは人です。AI社員は、御社の仕事を覚えるほど、任せられる範囲が広がっていきます。</p>
         <figure class="office">
           <!-- タップで拡大（JSが動かないときはPNGを直接開く） -->
-          <a class="office-zoom" href="assets/images/office/office_lp.png" aria-label="AI社員のオフィスの画像を拡大する">
+          <a class="office-zoom" href="assets/images/office/office_lp.png" data-dialog="office-dialog" aria-label="AI社員のオフィスの画像を拡大する">
             <picture>
               <source srcset="assets/images/office/office_lp.webp" type="image/webp" />
               <img src="assets/images/office/office_lp.png" alt="AI社員のオフィスのイラスト。社長秘書AI、リサーチャーAI、カスタマーサポートAI、WEBデザイナーAI、新規事業AI、在庫管理AI、セキュリティ担当AI、法務コンプラAI、WAKEが、それぞれの席で仕事をしている。在庫管理AIと法務コンプラAIは社長の確認待ち。社長室には「最終判断はここ」の札がある。" width="1920" height="1080" loading="lazy" />
@@ -98,7 +98,7 @@
           <figcaption>いま、それぞれが担当している仕事。「確認待ち」は社長の承認を待っている状態です。</figcaption>
         </figure>
         <dialog class="office-dialog" id="office-dialog" aria-label="AI社員のオフィス（拡大）">
-          <div class="office-dialog-bar"><span>左右にスクロールできます</span><button type="button" class="office-close">閉じる</button></div>
+          <div class="office-dialog-bar"><span class="scroll-hint">左右にスクロールできます</span><button type="button" class="office-close">閉じる</button></div>
           <div class="office-scroll">
             <picture>
               <source srcset="assets/images/office/office_lp.webp" type="image/webp" />
@@ -321,16 +321,26 @@
           <h3>トレードAIチーム WAKE</h3>
           <p class="wake-note">自社で運用中・販売はしていません</p>
           <p>潮流を読み、海流を捉え、ソナーでクジラを探す。</p>
-          <div class="wake-command">
-            <h4>BRIDGE（ブリッジ）｜司令塔</h4>
-            <p>下の3つの判断を統合する</p>
-          </div>
-          <div class="grid grid-3">
-            <div class="wake-role"><h4>TIDE（潮流AI）｜マクロ環境分析</h4><p>景気や金利など、相場全体の環境を読む</p></div>
-            <div class="wake-role"><h4>CURRENT（海流AI）｜セクター資金流入検知</h4><p>どの業種に資金が流れ込んでいるかを捉える</p></div>
-            <div class="wake-role"><h4>SONAR（ソナーAI）｜機関投資家エントリー探知</h4><p>機関投資家が動き始めた兆しを探す</p></div>
-          </div>
+          <figure class="office wake-figure">
+            <!-- タップで拡大（JSが動かないときはPNGを直接開く） -->
+            <a class="office-zoom" href="assets/images/wake/wake_submarine_lp.png" data-dialog="wake-dialog" aria-label="WAKEの潜水艦の図を拡大する">
+              <picture>
+                <source srcset="assets/images/wake/wake_submarine_lp.webp" type="image/webp" />
+                <img src="assets/images/wake/wake_submarine_lp.png" alt="WAKE トレードAIチームの潜水艦。BRIDGE・SONARが稼働中、WIREが構築中、TIDE・CURRENT・RADAR・KEELが研修中" width="1920" height="985" loading="lazy" />
+              </picture>
+              <span class="zoom-hint" aria-hidden="true"><span class="hint-sp">タップで拡大</span><span class="hint-pc">クリックで拡大</span></span>
+            </a>
+          </figure>
         </article>
+        <dialog class="office-dialog is-wake" id="wake-dialog" aria-label="WAKEの潜水艦（拡大）">
+          <div class="office-dialog-bar"><span class="scroll-hint">左右にスクロールできます</span><button type="button" class="office-close">閉じる</button></div>
+          <div class="office-scroll">
+            <picture>
+              <source srcset="assets/images/wake/wake_submarine_lp.webp" type="image/webp" />
+              <img src="assets/images/wake/wake_submarine_lp.png" alt="" width="1920" height="985" loading="lazy" />
+            </picture>
+          </div>
+        </dialog>
         <p class="notice">自社運用のみ・投資助言は行いません。</p>
       </div>
     </section>
@@ -411,18 +421,25 @@
     </div>
   </footer>
   <script>
-    // AI社員のオフィス：タップで拡大（dialogの外側か「閉じる」で閉じる）
+    // 画像のタップ・クリックで拡大（AI社員のオフィス・WAKEの潜水艦。PCでも同じ）。dialogの外側か「閉じる」で閉じる
     (() => {
-      const link = document.querySelector('.office-zoom'), dlg = document.getElementById('office-dialog');
-      if (!link || !dlg || typeof dlg.showModal !== 'function') return;
-      const scroller = dlg.querySelector('.office-scroll');
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        dlg.showModal();
-        scroller.scrollLeft = (scroller.scrollWidth - scroller.clientWidth) / 2;
+      document.querySelectorAll('.office-zoom[data-dialog]').forEach(link => {
+        const dlg = document.getElementById(link.dataset.dialog);
+        if (!dlg || typeof dlg.showModal !== 'function') return;
+        const scroller = dlg.querySelector('.office-scroll');
+        // 「左右にスクロールできます」は、図が画面からはみ出すときだけ出す
+        const fit = () => dlg.classList.toggle('is-overflow', scroller.scrollWidth > scroller.clientWidth + 1);
+        link.addEventListener('click', e => {
+          e.preventDefault();
+          dlg.showModal();
+          scroller.scrollLeft = (scroller.scrollWidth - scroller.clientWidth) / 2;
+          fit();
+          dlg.querySelector('.office-scroll img').decode?.().then(fit, () => {});
+        });
+        addEventListener('resize', () => { if (dlg.open) fit(); });
+        dlg.querySelector('.office-close').addEventListener('click', () => dlg.close());
+        dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
       });
-      dlg.querySelector('.office-close').addEventListener('click', () => dlg.close());
-      dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
     })();
   </script>
 </body>

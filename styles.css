@@ -126,8 +126,6 @@ section[id] { scroll-margin-top: 4.5rem; }  /* ページ内リンクで見出し
 .card-wake h4 { color: var(--aqua); margin-top: 0; }
 .card-wake p { margin: 0; font-size: .9rem; }
 .wake-logo { display: block; width: min(100%, 16rem); height: auto; margin-bottom: .5rem; }
-.wake-command { border: 1px solid var(--gold); border-radius: 12px; padding: .75rem 1rem; margin: 1rem 0; text-align: center; }
-.wake-role { border: 1px solid rgba(168, 213, 220, .35); border-radius: 12px; padding: .75rem 1rem; }
 
 /* 相談の流れ */
 .flow { list-style: none; padding: 0; margin: 0; display: grid; gap: .75rem; }
@@ -336,7 +334,7 @@ section[id] { scroll-margin-top: 4.5rem; }  /* ページ内リンクで見出し
 .office figcaption { margin-top: .5rem; font-size: .8rem; color: var(--muted); }
 
 /* オフィス画像：タップで拡大 */
-.office-zoom { position: relative; display: block; border-radius: 16px; overflow: hidden; }
+.office-zoom { position: relative; display: block; border-radius: 16px; overflow: hidden; text-decoration: none; }
 .office-zoom img { border-radius: 0; }
 .zoom-hint { position: absolute; right: .6rem; bottom: .6rem; font-size: .75rem; font-weight: 600; color: #fff; background: rgba(23, 48, 46, .8); border-radius: 999px; padding: .2rem .7rem; }
 .office-dialog { width: 100vw; max-width: none; height: 100dvh; max-height: none; margin: 0; padding: 0; border: 0; background: #17302E; color: #fff; }
@@ -351,4 +349,25 @@ section[id] { scroll-margin-top: 4.5rem; }  /* ページ内リンクで見出し
   .zoom-hint { display: none; }
   .office-scroll { justify-content: safe center; }
   .office-scroll picture { height: min(100%, 1080px); }
+}
+
+/* WAKE：潜水艦の図（タップで拡大は AI社員のオフィスと共通） */
+.wake-figure { margin: 1rem 0 0; }
+.wake-figure .office-zoom { border-radius: 12px; }
+.wake-figure .zoom-hint { position: static; display: table; margin: .5rem 0 0 auto; }  /* 図の四隅は吹き出しにかかるので、図の下に置く */
+.wake-figure .hint-pc { display: none; }
+.wake-figure .office-zoom { cursor: zoom-in; }
+@media (min-width: 768px) {
+  .wake-figure .zoom-hint { display: table; }  /* WAKEはPCでも「クリックで拡大」を出す */
+  .wake-figure .hint-sp { display: none; }
+  .wake-figure .hint-pc { display: inline; }
+}
+/* 拡大表示：上の帯は図の色に合わせる（WAKEは紺）。スクロールの案内ははみ出すときだけ */
+.office-dialog.is-wake { background: #0F1E33; }
+.office-dialog .scroll-hint { visibility: hidden; }
+.office-dialog.is-overflow .scroll-hint { visibility: visible; }
+@media (min-width: 768px) {
+  /* PCは図全体を画面に収める（はみ出さないので「左右にスクロール」は出ない） */
+  .office-scroll picture { height: auto; max-width: 100%; }
+  .office-scroll picture img { width: auto; height: auto; max-width: 100%; max-height: calc(100dvh - 60px); }
 }
