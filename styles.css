@@ -440,3 +440,16 @@ section[id] { scroll-margin-top: 4.5rem; }  /* ページ内リンクで見出し
   .calc { padding: 1.4rem 1.6rem 1.5rem; }
   .calc-inputs, .calc-results { grid-template-columns: 1fr 1fr; }
 }
+
+/* 業務の自動化ツール：見出し＋できること＋状態（導入実績のカードと同じ並び） */
+.tool { display: flex; flex-direction: column; }
+.tool h3 { font-size: 1.1rem; color: var(--green-dark); }
+.tool ul { margin: .25rem 0 1rem; font-size: .92rem; }
+.tool li { margin-bottom: .3rem; }
+.tool-status { margin: auto 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .6rem; }
+.tool-note { font-size: .8rem; color: var(--muted); }
+/* 学ぶ：料金の考え方（表の下に小さく） */
+.price-basis { margin: .6rem 0 .25rem; font-size: .85rem; color: var(--muted); }
+.price-basis-label { display: inline-block; margin-right: .5rem; padding: 0 .55rem; border-radius: 999px; background: var(--tint); font-size: .78rem; font-weight: 600; color: var(--green-dark); }
+.price-basis .price { font-size: 1em; }
+.campaign[hidden] { display: none; }

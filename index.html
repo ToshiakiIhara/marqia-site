@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Noto+Sans+JP:wght@400;600;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
   <!-- 更新したら v= を変える（ブラウザに古いCSSが残るのを防ぐ） -->
-  <link rel="stylesheet" href="styles.css?v=20261013f" />
+  <link rel="stylesheet" href="styles.css?v=20261014b" />
 </head>
 <body>
   <header class="site-header">
@@ -81,10 +81,11 @@
       </div>
     </section>
 
-    <!-- ② AI社員の組織図 -->
+    <!-- ② 就職活動中のAI社員（旧：AI社員の組織図） -->
     <section id="org" class="section">
       <div class="container">
-        <h2>AI社員の組織図</h2>
+        <h2>就職活動中のAI社員</h2>
+        <p class="lead">御社に入社できるAI社員です。</p>
         <p class="lead">判断するのは人です。AI社員は、御社の仕事を覚えるほど、任せられる範囲が広がっていきます。</p>
         <figure class="office">
           <!-- タップで拡大（JSが動かないときはPNGを直接開く） -->
@@ -95,7 +96,7 @@
             </picture>
             <span class="zoom-hint" aria-hidden="true">タップで拡大</span>
           </a>
-          <figcaption>いま、それぞれが担当している仕事。「確認待ち」は社長の承認を待っている状態です。</figcaption>
+          <figcaption>入社すると、こう働きます。いま、それぞれが担当している仕事。「確認待ち」は社長の承認を待っている状態です。</figcaption>
         </figure>
         <dialog class="office-dialog" id="office-dialog" aria-label="AI社員のオフィス（拡大）">
           <div class="office-dialog-bar"><span class="scroll-hint">左右にスクロールできます</span><button type="button" class="office-close">閉じる</button></div>
@@ -127,7 +128,7 @@
 
         <div class="grid grid-joined">
           <article class="card staff">
-            <p class="status status-joined">入社済み</p>
+            <p class="status status-joined">就職活動中</p>
             <div class="staff-head"><img class="staff-icon" src="assets/icons/secretary.jpg" alt="" width="400" height="400" loading="lazy" /><div class="staff-name"><h3>社長秘書AI</h3><p class="rank-badge"><span class="stars" aria-hidden="true">★★<span class="off">☆☆</span></span>主任</p></div></div>
             <p class="staff-role">担当：社長のメール対応</p>
             <h4>できること</h4>
@@ -143,7 +144,7 @@
           </article>
 
           <article class="card staff">
-            <p class="status status-joined">入社済み</p>
+            <p class="status status-joined">就職活動中</p>
             <div class="staff-head"><img class="staff-icon" src="assets/icons/researcher.jpg" alt="" width="400" height="400" loading="lazy" /><div class="staff-name"><h3>リサーチャーAI</h3><p class="rank-badge"><span class="stars" aria-hidden="true">★<span class="off">☆☆☆</span></span>新人</p></div></div>
             <p class="staff-role">担当：競合調査</p>
             <h4>できること</h4>
@@ -159,7 +160,7 @@
           </article>
 
           <article class="card staff">
-            <p class="status status-joined">入社済み</p>
+            <p class="status status-joined">就職活動中</p>
             <div class="staff-head"><img class="staff-icon" src="assets/icons/customer-support.jpg" alt="" width="400" height="400" loading="lazy" /><div class="staff-name"><h3>カスタマー<wbr />サポートAI</h3><p class="rank-badge"><span class="stars" aria-hidden="true">★<span class="off">☆☆☆</span></span>新人</p></div></div>
             <p class="staff-role">担当：お客様からの問い合わせ対応</p>
             <h4>できること</h4>
@@ -175,7 +176,7 @@
           </article>
 
           <article class="card staff">
-            <p class="status status-joined">入社済み</p>
+            <p class="status status-joined">就職活動中</p>
             <div class="staff-head"><img class="staff-icon" src="assets/icons/web-designer.jpg" alt="" width="400" height="400" loading="lazy" /><div class="staff-name"><h3>WEB<wbr />デザイナーAI</h3><p class="rank-badge"><span class="stars" aria-hidden="true">★<span class="off">☆☆☆</span></span>新人</p></div></div>
             <p class="staff-role">担当：告知・採用・キャンペーンのページ制作</p>
             <p class="staff-note">このページもWEBデザイナーAIが制作しました</p>
@@ -192,7 +193,7 @@
           </article>
 
           <article class="card staff">
-            <p class="status status-joined">入社済み</p>
+            <p class="status status-joined">就職活動中</p>
             <div class="staff-head"><img class="staff-icon" src="assets/icons/new-business.jpg" alt="" width="400" height="400" loading="lazy" /><div class="staff-name"><h3>新規事業AI</h3><p class="rank-badge"><span class="stars" aria-hidden="true">★<span class="off">☆☆☆</span></span>新人</p></div></div>
             <p class="staff-role">担当：事業アイデアを1枚で判定<span class="nowrap">（GO／小さく試す／保留／やめる）</span></p>
             <h4>できること</h4>
@@ -208,7 +209,7 @@
           </article>
 
           <article class="card staff">
-            <p class="status status-joined">入社済み</p>
+            <p class="status status-joined">就職活動中</p>
             <div class="staff-head"><img class="staff-icon" src="assets/icons/inventory.jpg" alt="" width="400" height="400" loading="lazy" /><div class="staff-name"><h3>在庫管理AI</h3><p class="rank-badge"><span class="stars" aria-hidden="true">★<span class="off">☆☆☆</span></span>新人</p></div></div>
             <p class="staff-role">担当：在庫のチェックと発注の準備</p>
             <h4>できること</h4>
@@ -224,7 +225,7 @@
           </article>
 
           <article class="card staff">
-            <p class="status status-joined">入社済み</p>
+            <p class="status status-joined">就職活動中</p>
             <div class="staff-head"><img class="staff-icon" src="assets/icons/security.jpg" alt="" width="400" height="400" loading="lazy" /><div class="staff-name"><h3>セキュリティ<wbr />担当AI</h3><p class="rank-badge"><span class="stars" aria-hidden="true">★<span class="off">☆☆☆</span></span>新人</p></div></div>
             <p class="staff-role">担当：公開前・導入前の点検</p>
             <h4>できること</h4>
@@ -240,7 +241,7 @@
           </article>
 
           <article class="card staff">
-            <p class="status status-joined">入社済み</p>
+            <p class="status status-joined">就職活動中</p>
             <div class="staff-head"><img class="staff-icon" src="assets/icons/legal.jpg" alt="" width="400" height="400" loading="lazy" /><div class="staff-name"><h3>法務<wbr />コンプラAI</h3><p class="rank-badge"><span class="stars" aria-hidden="true">★<span class="off">☆☆☆</span></span>新人</p></div></div>
             <p class="staff-role">担当：契約書の一次チェック</p>
             <h4>できること</h4>
@@ -256,12 +257,12 @@
           </article>
         </div>
 
-        <h3 class="sub-h">研修中</h3>
+        <h3 class="sub-h">就職活動準備中</h3>
         <div class="grid grid-3 grid-training">
-          <article class="card card-training"><p class="status status-training">研修中</p><div class="staff-head"><img class="staff-icon" src="assets/icons/sns-marketer.jpg" alt="" width="400" height="400" loading="lazy" /><h3>SNS<wbr />マーケターAI</h3></div><p class="role">SNSマーケティング担当</p></article>
-          <article class="card card-training"><p class="status status-training">研修中</p><div class="staff-head"><img class="staff-icon" src="assets/icons/accounting.jpg" alt="" width="400" height="400" loading="lazy" /><h3>経理AI</h3></div><p class="role">経理担当</p></article>
-          <article class="card card-training"><p class="status status-training">研修中</p><div class="staff-head"><img class="staff-icon" src="assets/icons/system-engineer.jpg" alt="" width="400" height="400" loading="lazy" /><h3>システム<wbr />エンジニアAI</h3></div><p class="role">システム開発担当</p></article>
-          <article class="card card-training"><p class="status status-training">研修中</p><div class="staff-head"><img class="staff-icon" src="assets/icons/content-creator.jpg" alt="" width="400" height="400" loading="lazy" /><h3>コンテンツ<wbr />クリエイターAI</h3></div><p class="role">コンテンツ制作担当</p></article>
+          <article class="card card-training"><p class="status status-training">就職活動準備中</p><div class="staff-head"><img class="staff-icon" src="assets/icons/sns-marketer.jpg" alt="" width="400" height="400" loading="lazy" /><h3>SNS<wbr />マーケターAI</h3></div><p class="role">SNSマーケティング担当</p></article>
+          <article class="card card-training"><p class="status status-training">就職活動準備中</p><div class="staff-head"><img class="staff-icon" src="assets/icons/accounting.jpg" alt="" width="400" height="400" loading="lazy" /><h3>経理AI</h3></div><p class="role">経理担当</p></article>
+          <article class="card card-training"><p class="status status-training">就職活動準備中</p><div class="staff-head"><img class="staff-icon" src="assets/icons/system-engineer.jpg" alt="" width="400" height="400" loading="lazy" /><h3>システム<wbr />エンジニアAI</h3></div><p class="role">システム開発担当</p></article>
+          <article class="card card-training"><p class="status status-training">就職活動準備中</p><div class="staff-head"><img class="staff-icon" src="assets/icons/content-creator.jpg" alt="" width="400" height="400" loading="lazy" /><h3>コンテンツ<wbr />クリエイターAI</h3></div><p class="role">コンテンツ制作担当</p></article>
         </div>
       </div>
     </section>
@@ -293,9 +294,10 @@
       </div>
     </section>
 
-    <!-- 料金：「学ぶ」と「共通のご案内」は常に表示。「任せる」の金額（導入費・月額・計算機）は、開業記念価格の期間だけ
-         下の <template> を表示する（設定は末尾の <script> の CAMPAIGN_END / CAMPAIGN_OPEN）。
-         期間外・JavaScriptが動かないときは、「任せる」の中を「料金は無料相談でご案内します。」にする -->
+    <!-- 料金：金額は HTML に開業記念価格（launch）で書いてある（JavaScript が動かなくても表示される）。
+         設定は末尾の <script> の PRICE_SET / CAMPAIGN_END / CAMPAIGN_OPEN。
+         ・PRICE_SET = "standard" にすると、data-yen を持つ金額と計算機が2倍になる（交通費の実費は対象外）
+         ・「開業記念価格」の枠は、期限内・CAMPAIGN_OPEN・PRICE_SET が "launch" のときだけ表示（HTMLでは hidden） -->
     <section id="price" class="section">
       <div class="container">
         <h2>料金</h2>
@@ -304,69 +306,64 @@
         <div class="grid service-grid price-grid">
           <article class="card service-group price-learn">
             <div class="service-head"><h3>学ぶ</h3><p class="service-tagline">研修・セミナー｜自分でAIを使える・作れるようになる</p></div>
-            <p class="formula"><span class="chip">（本番の時間 ＋ 準備の時間）× <span class="price">10,000円<span class="per">／時間</span></span></span></p>
             <table class="price-table">
               <thead><tr><th scope="col">種類</th><th scope="col">説明</th><th scope="col">2時間の場合</th></tr></thead>
               <tbody>
-                <tr><th scope="row">テンプレ</th><td>既存の資料をそのまま使います。</td><td><span class="price">20,000円</span></td></tr>
-                <tr><th scope="row">セミカスタム</th><td>業種に合わせて、事例や画面を差し替えます。</td><td><span class="price">40,000円</span></td></tr>
-                <tr><th scope="row">フルカスタム</th><td>事前にヒアリングして、御社専用の資料を作ります。</td><td><span class="price">60,000〜80,000円</span></td></tr>
+                <tr><th scope="row">テンプレ</th><td>既存の資料をそのまま使います。</td><td><span class="price" data-yen="20000">20,000円</span></td></tr>
+                <tr><th scope="row">セミカスタム</th><td>業種に合わせて、事例や画面を差し替えます。</td><td><span class="price" data-yen="40000">40,000円</span></td></tr>
+                <tr><th scope="row">フルカスタム</th><td>事前にヒアリングして、御社専用の資料を作ります。</td><td><span class="price" data-yen="60000-80000">60,000〜80,000円</span></td></tr>
               </tbody>
             </table>
-            <p class="price-note">※参加者が10名を超える場合は、1名あたり<span class="price">5,000円</span>を加算します。</p>
+            <p class="price-basis"><span class="price-basis-label">料金の考え方</span>（本番の時間 ＋ 準備の時間）× <span class="price" data-yen="10000">10,000円<span class="per">／時間</span></span></p>
+            <p class="price-note">※参加者が10名を超える場合は、1名あたり<span class="price" data-yen="5000">5,000円</span>を加算します。</p>
             <p class="price-note">※法人研修・団体向けセミナーは、内容に合わせてお見積もりします。</p>
           </article>
 
           <article class="card service-group price-entrust">
             <div class="service-head"><h3>任せる</h3><p class="service-tagline">AI社員を採用して、育てる</p></div>
-            <div id="entrust-price">
-              <p class="price-closed" id="price-closed">料金は無料相談でご案内します。</p>
+            <div class="campaign" id="campaign" hidden>
+              <p class="campaign-title">開業記念価格<span class="campaign-term">（2026年11月30日まで・<wbr />先着5社）</span></p>
+              <p class="campaign-body">MARQIAの開業を記念して、第1期にご導入いただく5社に限り、この価格でお引き受けします。<br />第1期の会社さまは、ご契約が続くかぎり、月額の単価（基本料・AI社員1体あたり・ご利用者1人あたり）をこの価格のまま据え置きます。</p>
             </div>
-            <template id="entrust-template">
-              <div class="campaign">
-                <p class="campaign-title">開業記念価格<span class="campaign-term">（2026年11月30日まで・<wbr />先着5社）</span></p>
-                <p class="campaign-body">MARQIAの開業を記念して、第1期にご導入いただく5社に限り、この価格でお引き受けします。<br />第1期の会社さまは、ご契約が続くかぎり、月額の単価（基本料・AI社員1体あたり・ご利用者1人あたり）をこの価格のまま据え置きます。</p>
-              </div>
 
-              <section class="entrust-step">
-                <h4 class="step-label">① 採用する（導入費・初回のみ）</h4>
-                <p class="formula"><span class="chip">会社ごと <span class="price">25,000円</span></span><span class="plus">＋</span><span class="chip">AI社員1体 <span class="price">30,000円</span></span><span class="plus">＋</span><span class="chip">使う人1人 <span class="price">10,000円</span></span></p>
-                <p class="price-desc">環境の確認、AI社員の設定とテスト、PCの設定と使い方のご説明まで。</p>
-              </section>
+            <section class="entrust-step">
+              <h4 class="step-label">① 採用する（導入費・初回のみ）</h4>
+              <p class="formula"><span class="chip">会社ごと <span class="price" data-yen="25000">25,000円</span></span><span class="plus">＋</span><span class="chip">AI社員1体 <span class="price" data-yen="30000">30,000円</span></span><span class="plus">＋</span><span class="chip">使う人1人 <span class="price" data-yen="10000">10,000円</span></span></p>
+              <p class="price-desc">環境の確認、AI社員の設定とテスト、PCの設定と使い方のご説明まで。</p>
+            </section>
 
-              <section class="entrust-step">
-                <h4 class="step-label">② 育てる（月額顧問）</h4>
-                <p class="formula"><span class="chip">基本料 <span class="price">30,000円</span></span><span class="plus">＋</span><span class="chip">AI社員1体 <span class="price">15,000円</span></span><span class="plus">＋</span><span class="chip">使う人1人 <span class="price">5,000円</span></span></p>
-                <p class="price-desc">育てる・任せる範囲を決める・評価する・入れ替える。定例面談は原則オンラインです。</p>
-              </section>
+            <section class="entrust-step">
+              <h4 class="step-label">② 育てる（月額顧問）</h4>
+              <p class="formula"><span class="chip">基本料 <span class="price" data-yen="30000">30,000円</span></span><span class="plus">＋</span><span class="chip">AI社員1体 <span class="price" data-yen="15000">15,000円</span></span><span class="plus">＋</span><span class="chip">使う人1人 <span class="price" data-yen="5000">5,000円</span></span></p>
+              <p class="price-desc">育てる・任せる範囲を決める・評価する・入れ替える。定例面談は原則オンラインです。</p>
+            </section>
 
-              <div class="calc" id="calc">
-                <p class="calc-title">御社の場合で計算してみる</p>
-                <div class="calc-inputs">
-                  <div class="calc-input">
-                    <span class="calc-label" id="calc-a-label">入れるAI社員</span>
-                    <div class="stepper">
-                      <button type="button" class="step-btn" data-target="a" data-step="-1" aria-label="AI社員を1体減らす">−</button>
-                      <output class="step-val" id="calc-a" aria-labelledby="calc-a-label" aria-live="polite">1</output><span class="step-unit">体</span>
-                      <button type="button" class="step-btn" data-target="a" data-step="1" aria-label="AI社員を1体増やす">＋</button>
-                    </div>
-                  </div>
-                  <div class="calc-input">
-                    <span class="calc-label" id="calc-u-label">使う人（PCの台数）</span>
-                    <div class="stepper">
-                      <button type="button" class="step-btn" data-target="u" data-step="-1" aria-label="使う人を1人減らす">−</button>
-                      <output class="step-val" id="calc-u" aria-labelledby="calc-u-label" aria-live="polite">1</output><span class="step-unit">人</span>
-                      <button type="button" class="step-btn" data-target="u" data-step="1" aria-label="使う人を1人増やす">＋</button>
-                    </div>
+            <div class="calc" id="calc">
+              <p class="calc-title">御社の場合で計算してみる</p>
+              <div class="calc-inputs">
+                <div class="calc-input">
+                  <span class="calc-label" id="calc-a-label">入れるAI社員</span>
+                  <div class="stepper">
+                    <button type="button" class="step-btn" data-target="a" data-step="-1" aria-label="AI社員を1体減らす">−</button>
+                    <output class="step-val" id="calc-a" aria-labelledby="calc-a-label" aria-live="polite">1</output><span class="step-unit">体</span>
+                    <button type="button" class="step-btn" data-target="a" data-step="1" aria-label="AI社員を1体増やす">＋</button>
                   </div>
                 </div>
-                <div class="calc-results">
-                  <div class="calc-result"><p class="calc-result-label">① 採用する（導入費・初回のみ）</p><p class="calc-result-val" id="calc-initial"><span class="price">65,000円</span></p></div>
-                  <div class="calc-result"><p class="calc-result-label">② 育てる（月額顧問）</p><p class="calc-result-val" id="calc-monthly"><span class="price">50,000円<span class="per">／月</span></span></p></div>
+                <div class="calc-input">
+                  <span class="calc-label" id="calc-u-label">使う人（PCの台数）</span>
+                  <div class="stepper">
+                    <button type="button" class="step-btn" data-target="u" data-step="-1" aria-label="使う人を1人減らす">−</button>
+                    <output class="step-val" id="calc-u" aria-labelledby="calc-u-label" aria-live="polite">1</output><span class="step-unit">人</span>
+                    <button type="button" class="step-btn" data-target="u" data-step="1" aria-label="使う人を1人増やす">＋</button>
+                  </div>
                 </div>
-                <p class="calc-note">AI社員はあとから追加・入れ替えができます。追加するときは導入費が1体<span class="price">30,000円</span>かかり、月額が<span class="price">15,000円</span>増えます。</p>
               </div>
-            </template>
+              <div class="calc-results">
+                <div class="calc-result"><p class="calc-result-label">① 採用する（導入費・初回のみ）</p><p class="calc-result-val" id="calc-initial"><span class="price" data-yen="65000">65,000円</span></p></div>
+                <div class="calc-result"><p class="calc-result-label">② 育てる（月額顧問）</p><p class="calc-result-val" id="calc-monthly"><span class="price" data-yen="50000">50,000円<span class="per">／月</span></span></p></div>
+              </div>
+              <p class="calc-note">AI社員はあとから追加・入れ替えができます。追加するときは導入費が1体<span class="price" data-yen="30000">30,000円</span>かかり、月額が<span class="price" data-yen="15000">15,000円</span>増えます。</p>
+            </div>
           </article>
         </div>
 
@@ -374,7 +371,7 @@
           <p class="price-common-title">共通のご案内</p>
           <ul>
             <li>交通費は、全国一律で実費をいただきます。</li>
-            <li>片道1時間を超える移動は、超えた分を1時間あたり<span class="price">5,000円</span>でいただきます。</li>
+            <li>片道1時間を超える移動は、超えた分を1時間あたり<span class="price" data-yen="5000">5,000円</span>でいただきます。</li>
             <li>業務に合わせて一からAI社員を作るオーダーメイドは、別途お見積もりします。</li>
           </ul>
         </div>
@@ -387,16 +384,25 @@
     <section id="tools" class="section">
       <div class="container">
         <h2>業務の自動化ツール</h2>
-        <div class="grid grid-2">
-          <article class="card">
-            <h3>出欠管理システム</h3>
-            <p>ビジネス交流会の出欠をQRで自動記録</p>
-            <span class="tag">Google Apps Script</span>
+        <div class="grid grid-2 tools-grid">
+          <article class="card tool">
+            <h3>受付の名簿づけと、出欠の集計がいらなくなった</h3>
+            <ul>
+              <li>会場のQRコードを読み、名前を選ぶだけで出席の受付が完了</li>
+              <li>決めた時刻を過ぎた受付は、自動で「遅刻」として記録</li>
+              <li>同じ人の二重登録を防ぐ</li>
+              <li>週に1回、受付しなかった人を自動で「欠席」に記録</li>
+            </ul>
+            <p class="tool-status"><span class="status status-joined">稼働中</span><span class="tool-note">地域ビジネス交流会の毎週の定例会で使用</span></p>
           </article>
-          <article class="card">
-            <h3>来訪者情報のDiscord自動共有</h3>
-            <p>来訪者の情報をDiscordに自動で共有</p>
-            <span class="tag">Google Apps Script</span>
+          <article class="card tool">
+            <h3>参加申し込みが入ると、担当者にすぐ届く</h3>
+            <ul>
+              <li>申し込みフォームに回答が入ると、内容を読みやすく整えて、チームのチャットに自動で投稿</li>
+              <li>申し込みの種類（初参加・代理出席・ゲスト）ごとに、決まった担当チャンネルへ振り分け</li>
+              <li>会のルールに合わない申し込みには、注意の印を付けて知らせる</li>
+            </ul>
+            <p class="tool-status"><span class="status status-joined">稼働中</span></p>
           </article>
         </div>
       </div>
@@ -456,8 +462,8 @@
           <p class="name">伊原 敏明<span class="kana">（いはら としあき）</span><span>MARQIA 代表</span></p>
           <p class="bio">ベンチャーキャピタル、エンタメ事業会社での<span class="nowrap">新規事業開発</span>、AIスタートアップ、<span class="nowrap">SaaS系上場企業</span>の<span class="nowrap">経営企画室</span>を経験。<br />
           現在は出張専門の中古車買取店を経営。<br />
-          自分の店で使う秘書AIを自作したのが、MARQIA（マルキア）の始まり。<br />
-          米国株のトレードAI「WAKE」も<span class="nowrap">自社で運用中。</span><span class="nowrap">早稲田大学大学院理工学研究科修了</span><span class="nowrap">（専門：生化学）。</span><span class="nowrap">茨城県在住。</span></p>
+          米国株のトレードAI「WAKE」を開発したのが、MARQIA（マルキア）の始まり。<br />
+          <span class="nowrap">早稲田大学大学院理工学研究科修了</span><span class="nowrap">（専門：生化学）。</span><span class="nowrap">茨城県在住。</span></p>
         </div>
       </div>
     </section>
@@ -513,32 +519,41 @@
   <script>
 
     // ===== 料金の設定（ここだけ変える） =====
-    // CAMPAIGN_END：開業記念価格の締め切り（日本時間 2026-11-30 23:59 まで）
-    // CAMPAIGN_OPEN：先着5社が埋まったら false にする
+    // PRICE_SET：今の値段は "launch"。"standard" にすると、任せる・学ぶ・移動費の金額がすべて2倍になる（交通費の実費は変わらない）
+    // CAMPAIGN_END：「開業記念価格」の枠を出す締め切り（日本時間 2026-11-30 23:59 まで）
+    // CAMPAIGN_OPEN：先着5社が埋まったら false にする（枠だけ消える。金額はそのまま）
+    const PRICE_SET = 'launch';
     const CAMPAIGN_END = new Date('2026-11-30T23:59:59+09:00');
     const CAMPAIGN_OPEN = true;
     // ======================================
-    // 期間中だけ「任せる」の金額（導入費・月額・計算機）を出す。期間外は「料金は無料相談でご案内します。」のまま（HTMLの初期状態）
     (() => {
-      const tpl = document.getElementById('entrust-template'), box = document.getElementById('entrust-price');
-      if (!tpl || !box || !CAMPAIGN_OPEN || Date.now() > CAMPAIGN_END.getTime()) return;
-      box.replaceChildren(tpl.content.cloneNode(true));
+      const section = document.getElementById('price');
+      if (!section) return;
+      const factor = PRICE_SET === 'standard' ? 2 : 1;
+      const yen = n => n.toLocaleString('ja-JP') + '円';
+      // 金額：HTML に書いた開業記念価格（data-yen）× factor
+      section.querySelectorAll('[data-yen]').forEach(el => {
+        const unit = el.querySelector('.per');
+        el.textContent = el.dataset.yen.split('-').map(n => (Number(n) * factor).toLocaleString('ja-JP')).join('〜') + '円';
+        if (unit) el.appendChild(unit);
+      });
+      // 「開業記念価格」の枠：期限内・募集中・開業記念価格のときだけ
+      document.getElementById('campaign').hidden = !(PRICE_SET === 'launch' && CAMPAIGN_OPEN && Date.now() <= CAMPAIGN_END.getTime());
 
       // 計算機：a = AI社員の数（1〜10）、u = 使う人の数（1〜30）
       const LIMIT = { a: [1, 10], u: [1, 30] }, val = { a: 1, u: 1 };
-      const yen = n => n.toLocaleString('ja-JP') + '円';
       const render = () => {
         const { a, u } = val;
         document.getElementById('calc-a').textContent = a;
         document.getElementById('calc-u').textContent = u;
-        document.getElementById('calc-initial').innerHTML = `<span class="price">${yen(25000 + 30000 * a + 10000 * u)}</span>`;
-        document.getElementById('calc-monthly').innerHTML = `<span class="price">${yen(30000 + 15000 * a + 5000 * u)}<span class="per">／月</span></span>`;
-        box.querySelectorAll('.step-btn').forEach(btn => {
+        document.getElementById('calc-initial').innerHTML = `<span class="price">${yen((25000 + 30000 * a + 10000 * u) * factor)}</span>`;
+        document.getElementById('calc-monthly').innerHTML = `<span class="price">${yen((30000 + 15000 * a + 5000 * u) * factor)}<span class="per">／月</span></span>`;
+        section.querySelectorAll('.step-btn').forEach(btn => {
           const [min, max] = LIMIT[btn.dataset.target], v = val[btn.dataset.target] + Number(btn.dataset.step);
           btn.disabled = v < min || v > max;
         });
       };
-      box.querySelectorAll('.step-btn').forEach(btn => btn.addEventListener('click', () => {
+      section.querySelectorAll('.step-btn').forEach(btn => btn.addEventListener('click', () => {
         const t = btn.dataset.target, [min, max] = LIMIT[t];
         val[t] = Math.min(max, Math.max(min, val[t] + Number(btn.dataset.step)));
         render();
