@@ -34,6 +34,8 @@ body {
 h1, h2, h3 { font-family: var(--font-head); font-weight: 500; line-height: 1.4; }
 h2 { font-size: clamp(1.5rem, 5vw, 2rem); margin: 0 0 1rem; }
 h2::after { content: ""; display: block; width: 2.5rem; height: 2px; background: var(--sea); margin-top: .5rem; }
+.headline-lg { font-size: clamp(1.9rem, 7.5vw, 2.7rem); line-height: 1.35; }  /* セクション内で一番目立つ見出し */
+.headline-lg::after { width: 3.5rem; height: 3px; background: var(--gold); }
 h3 { font-size: 1.2rem; margin: .25rem 0 .5rem; }
 h4 { font-size: .9rem; margin: 1rem 0 .25rem; color: var(--green); }
 
@@ -201,6 +203,7 @@ section[id] { scroll-margin-top: 4.5rem; }  /* ページ内リンクで見出し
 /* 代表の経歴 */
 .name .kana { display: inline; font-size: .85rem; margin-left: .25rem; color: var(--muted); }
 .bio { margin: .75rem 0 0; font-size: .95rem; }
+.bio-note { margin: .5rem 0 0; font-size: .78rem; color: var(--muted); }
 
 /* 社長秘書AI：2つの働き方（PC版／スマホ版）。グリッドの外に置き、常に横幅いっぱい */
 .staff-secretary { margin: 0 0 1.5rem; display: flex; flex-direction: column; }
