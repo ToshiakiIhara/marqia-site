@@ -202,6 +202,25 @@ section[id] { scroll-margin-top: 4.5rem; }  /* ページ内リンクで見出し
 .name .kana { display: inline; font-size: .85rem; margin-left: .25rem; color: var(--muted); }
 .bio { margin: .75rem 0 0; font-size: .95rem; }
 
+/* 社長秘書AI：2つの働き方（PC版／スマホ版）。グリッドの外に置き、常に横幅いっぱい */
+.staff-secretary { margin: 0 0 1.5rem; display: flex; flex-direction: column; }
+.staff-secretary .staff-head { margin-bottom: 0; }
+.staff-secretary .staff-role { margin: .5rem 0 1.1rem; }
+.secretary-modes { display: grid; gap: 1rem; }
+.secretary-mode { border: 1px solid var(--line); border-radius: 12px; padding: 1.1rem 1.2rem; background: #fff; display: flex; flex-direction: column; }
+.secretary-mode .status { align-self: flex-start; margin-bottom: .6rem; }
+.mode-head { display: flex; align-items: center; gap: .5rem; margin: 0 0 .3rem; font-weight: 600; font-size: 1.05rem; color: var(--text); }
+.secretary-mode .rank-badge { margin: 0 0 .6rem; }
+.mode-icon { width: 22px; height: 22px; flex: none; color: var(--green-dark); fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.secretary-mode p { margin: 0 0 .5rem; }
+.secretary-mode ul { margin: 0 0 .5rem; padding-left: 1.1rem; font-size: .92rem; }
+.secretary-mode li { margin-bottom: .3rem; }
+.mode-note { margin: auto 0 0; padding-top: .6rem; border-top: 1px solid var(--line); font-size: .8rem; color: var(--muted); }
+.secretary-fee-note { margin: 1rem 0 0; font-size: .78rem; color: var(--muted); }
+@media (min-width: 768px) {
+  .secretary-modes { grid-template-columns: 1fr 1fr; }
+}
+
 /* 入社済み：スマホ1列、PC3列 */
 .grid-joined { grid-template-columns: 1fr; }
 @media (min-width: 768px) {

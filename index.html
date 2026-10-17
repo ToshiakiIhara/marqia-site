@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Noto+Sans+JP:wght@400;600;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
   <!-- 更新したら v= を変える（ブラウザに古いCSSが残るのを防ぐ） -->
-  <link rel="stylesheet" href="styles.css?v=20261014b" />
+  <link rel="stylesheet" href="styles.css?v=20261017b" />
 </head>
 <body>
   <header class="site-header">
@@ -126,23 +126,36 @@
 
         <div class="org-head">代表（人）<span>判断と最終確認を持つ</span></div>
 
-        <div class="grid grid-joined">
-          <article class="card staff">
-            <p class="status status-joined">就職活動中</p>
-            <div class="staff-head"><img class="staff-icon" src="assets/icons/secretary.jpg" alt="" width="400" height="400" loading="lazy" /><div class="staff-name"><h3>社長秘書AI</h3><p class="rank-badge"><span class="stars" aria-hidden="true">★★<span class="off">☆☆</span></span>主任</p></div></div>
-            <p class="staff-role">担当：社長のメール対応</p>
-            <h4>できること</h4>
-            <ul>
-              <li>受信メールを読んで、返信の下書きをGmailに作る</li>
-              <li>金額・納期など判断が要る部分は空欄にして、社長の確認を待つ</li>
-              <li>社長の文体を学習して、本人らしい文面で書く</li>
-            </ul>
-            <div class="next-rank">
-              <h4>次の昇進（今後の予定）</h4>
-              <p>課長：毎朝、その日の予定とやることをまとめて社長に報告し、期限の前に知らせる（MARQIA社内で試運転中）</p>
-            </div>
-          </article>
+        <article class="card staff-secretary">
+          <div class="staff-head"><img class="staff-icon" src="assets/icons/secretary.jpg" alt="" width="400" height="400" loading="lazy" /><div class="staff-name"><h3>社長秘書AI ― 2つの働き方から選べます</h3></div></div>
+          <p class="staff-role">お使いのAIに合わせて、働き方を選べます。どちらも、送信は必ず社長の確認後。勝手に送ることはありません。</p>
+          <div class="secretary-modes">
+            <article class="secretary-mode">
+              <p class="status status-joined">就職活動中</p>
+              <p class="mode-head"><svg class="mode-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="12" rx="1.5"></rect><line x1="8" y1="20" x2="16" y2="20"></line><line x1="12" y1="16" x2="12" y2="20"></line></svg>PC版（Claude）</p>
+              <p class="rank-badge"><span class="stars" aria-hidden="true">★★<span class="off">☆☆</span></span>主任</p>
+              <p>PCで起動して、受信メールへの返信の下書きを作ります。</p>
+              <p class="mode-note">Claudeをお使いの会社向け。</p>
+            </article>
+            <article class="secretary-mode">
+              <p class="status status-joined">就職活動中</p>
+              <p class="mode-head"><svg class="mode-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"></rect><line x1="10.5" y1="19" x2="13.5" y2="19"></line></svg>スマホ版（ChatGPT）</p>
+              <p class="rank-badge"><span class="stars" aria-hidden="true">★★★<span class="off">☆</span></span>課長</p>
+              <p>いつも待機していて、先回りで教えてくれる秘書です。</p>
+              <ul>
+                <li>毎朝、その日の予定をまとめてお届け</li>
+                <li>外出や訪問の前に「そろそろ出発の時間です」とお知らせ</li>
+                <li>急ぎのメールが届いたら、すぐにスマホに知らせます</li>
+                <li>返信の下書きをGmailに保存。社長は確認して送るだけ</li>
+                <li>カレンダーやタスクの管理にも対応</li>
+              </ul>
+              <p class="mode-note">ChatGPTの有料プランと、Gmail・Googleカレンダーをお使いの会社向け。</p>
+            </article>
+          </div>
+          <p class="secretary-fee-note">※AIサービスの利用料（ChatGPTやClaudeの有料プランの料金）は、御社からAI会社へ直接お支払いいただくもので、MARQIAの料金とは別です。</p>
+        </article>
 
+        <div class="grid grid-joined">
           <article class="card staff">
             <p class="status status-joined">就職活動中</p>
             <div class="staff-head"><img class="staff-icon" src="assets/icons/researcher.jpg" alt="" width="400" height="400" loading="lazy" /><div class="staff-name"><h3>リサーチャーAI</h3><p class="rank-badge"><span class="stars" aria-hidden="true">★<span class="off">☆☆☆</span></span>新人</p></div></div>
