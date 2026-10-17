@@ -349,6 +349,8 @@ section[id] { scroll-margin-top: 4.5rem; }  /* ページ内リンクで見出し
 
 /* 最後の行動：ボタンは横並び（スマホは縦） */
 .cta-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; }
+.contact-mail-note { margin: 1rem 0 0; font-size: .85rem; color: var(--muted); }
+.contact-mail-note a { color: var(--green-dark); }
 
 /* AI社員のオフィス（組織図の冒頭） */
 .office { margin: 1.25rem 0 0; }
