@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Noto+Sans+JP:wght@400;600;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
   <!-- 更新したら v= を変える（ブラウザに古いCSSが残るのを防ぐ） -->
-  <link rel="stylesheet" href="styles.css?v=20261017d" />
+  <link rel="stylesheet" href="styles.css?v=20261017e" />
 </head>
 <body>
   <header class="site-header">
@@ -324,6 +324,32 @@
       </div>
     </section>
 
+    <!-- AI社員かんたん診断：7問に答えると、合うAI社員と時間の目安がわかる。外部への送信・保存はしない（結果画面の無料相談リンクを開く操作だけが例外） -->
+    <section id="diagnosis" class="section">
+      <div class="container">
+        <h2>AI社員かんたん診断｜1分・7問</h2>
+        <p class="lead">7つの質問に答えると、合うAI社員と、今の仕事にかかっている時間の目安がわかります。個人情報の入力はありません。</p>
+
+        <div class="diag card" id="diag">
+          <div class="diag-progress">
+            <span class="diag-step-label" id="diag-step-label">1/7</span>
+            <div class="diag-progress-bar"><span class="diag-progress-fill" id="diag-progress-fill"></span></div>
+          </div>
+
+          <div class="diag-question" id="diag-question">
+            <p class="diag-q-text" id="diag-q-text"></p>
+            <div class="diag-choices" id="diag-choices"></div>
+          </div>
+
+          <div class="diag-result" id="diag-result" hidden></div>
+
+          <div class="diag-nav">
+            <button type="button" class="diag-back" id="diag-back" disabled>戻る</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- 料金：金額は HTML に開業記念価格（launch）で書いてある（JavaScript が動かなくても表示される）。
          設定は末尾の <script> の PRICE_SET / CAMPAIGN_END / CAMPAIGN_OPEN。
          ・PRICE_SET = "standard" にすると、data-yen を持つ金額と計算機が2倍になる（交通費の実費は対象外）
@@ -563,6 +589,17 @@
       if (!section) return;
       const factor = PRICE_SET === 'standard' ? 2 : 1;
       const yen = n => n.toLocaleString('ja-JP') + '円';
+
+      // 他のセクション（AI社員かんたん診断など）から料金を参照するための窓口。表示ロジックには関与しない
+      window.MARQIA_PRICE = {
+        priceSet: PRICE_SET,
+        factor,
+        oneAI: {  // 社長1人×AI社員1体の金額
+          initial: (25000 + 30000 + 10000) * factor,
+          monthly: (30000 + 15000 + 5000) * factor,
+        },
+      };
+
       // 金額：HTML に書いた開業記念価格（data-yen）× factor
       section.querySelectorAll('[data-yen]').forEach(el => {
         const unit = el.querySelector('.per');
@@ -591,6 +628,189 @@
         render();
       }));
       render();
+    })();
+    // AI社員かんたん診断：外部への送信・保存はしない（結果の無料相談リンクを開く操作のみ、ユーザーの明示的なクリックで例外）
+    (() => {
+      const stepLabel = document.getElementById('diag-step-label');
+      const progressFill = document.getElementById('diag-progress-fill');
+      const qBox = document.getElementById('diag-question');
+      const qText = document.getElementById('diag-q-text');
+      const choicesBox = document.getElementById('diag-choices');
+      const resultBox = document.getElementById('diag-result');
+      const backBtn = document.getElementById('diag-back');
+      if (!qBox || !resultBox) return;
+
+      // Q1：推薦AI社員。badge は「就職活動中のAI社員」一覧の★バッジと同じ表記（filled/total/label）
+      const ROLE = {
+        secretary:   { name: '社長秘書AI' },
+        researcher:  { name: 'リサーチャーAI',       badge: { filled: 1, total: 4, label: '新人' } },
+        support:     { name: 'カスタマーサポートAI', badge: { filled: 1, total: 4, label: '新人' } },
+        web:         { name: 'WEBデザイナーAI',       badge: { filled: 1, total: 4, label: '新人' } },
+        inventory:   { name: '在庫管理AI',           badge: { filled: 1, total: 4, label: '新人' } },
+        legal:       { name: '法務コンプラAI',       badge: { filled: 1, total: 4, label: '新人' } },
+        proofreader: { name: '校閲係AI',             badge: { filled: 1, total: 4, label: '新人' } },
+        newbiz:      { name: '新規事業AI',           badge: { filled: 1, total: 4, label: '新人' } },
+      };
+
+      const QUESTIONS = [
+        { id: 'role', text: 'いちばん時間を取られている仕事は？', choices: [
+          { label: 'メールの返信・予定の調整', value: 'secretary' },
+          { label: '競合や相場の調べもの', value: 'researcher' },
+          { label: 'お客様からの問い合わせ対応', value: 'support' },
+          { label: 'チラシ・告知ページづくり', value: 'web' },
+          { label: '在庫の確認と発注', value: 'inventory' },
+          { label: '契約書の確認', value: 'legal' },
+          { label: '出す前の文書チェック', value: 'proofreader' },
+          { label: '新しい事業のアイデア検討', value: 'newbiz' },
+        ] },
+        { id: 'freq', text: 'その仕事の頻度は？', choices: [
+          { label: '毎日', value: 20 }, { label: '週2〜3回', value: 10 },
+          { label: '週1回', value: 4 }, { label: '月1〜2回', value: 1.5 },
+        ] },
+        { id: 'dur', text: '1回あたりの時間は？', choices: [
+          { label: '15分', value: 0.25 }, { label: '30分', value: 0.5 },
+          { label: '1時間', value: 1 }, { label: '2時間以上', value: 2 },
+        ] },
+        { id: 'people', text: '何人でやっている？', choices: [
+          { label: '1人', value: 1 }, { label: '2〜3人', value: 2.5 },
+          { label: '4〜5人', value: 4.5 }, { label: '6人以上', value: 6 },
+        ] },
+        { id: 'who', text: '主にやっているのは？', choices: [
+          { label: '社長ご自身', value: 'owner' }, { label: '社員', value: 'staff' }, { label: '両方', value: 'both' },
+        ] },
+        { id: 'mail', text: '会社のメールは？', choices: [
+          { label: 'Gmail', value: 'gmail' }, { label: 'Outlook', value: 'outlook' }, { label: 'その他・わからない', value: 'other' },
+        ] },
+        { id: 'ai', text: 'AIの使い方は？', choices: [
+          { label: '有料版を使っている', value: 'paid' }, { label: '無料版だけ', value: 'free' }, { label: '使っていない', value: 'none' },
+        ] },
+      ];
+
+      let step = 0;
+      const answers = {};
+      const yen = n => n.toLocaleString('ja-JP') + '円';
+      const starBadge = b => `<p class="rank-badge"><span class="stars" aria-hidden="true">${'★'.repeat(b.filled)}<span class="off">${'☆'.repeat(b.total - b.filled)}</span></span>${b.label}</p>`;
+      const FORM_BASE = 'https://docs.google.com/forms/d/e/1FAIpQLSdVkfefOUWkqWeuvLCPAIyQNsxRuEGjWnN5wUa2mNjtTUnMzw/viewform?usp=pp_url&entry.681052827=';
+
+      const renderQuestion = () => {
+        resultBox.hidden = true;
+        qBox.hidden = false;
+        backBtn.disabled = step === 0;
+        const q = QUESTIONS[step];
+        stepLabel.textContent = `${step + 1}/7`;
+        progressFill.style.width = `${(step / 7) * 100}%`;
+        qText.textContent = q.text;
+        choicesBox.innerHTML = '';
+        q.choices.forEach(c => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'diag-choice';
+          btn.textContent = c.label;
+          if (answers[q.id] && answers[q.id].label === c.label) btn.classList.add('is-selected');
+          btn.addEventListener('click', () => selectChoice(q, c, btn));
+          choicesBox.appendChild(btn);
+        });
+      };
+
+      const selectChoice = (q, choice, btn) => {
+        answers[q.id] = choice;
+        choicesBox.querySelectorAll('.diag-choice').forEach(b => b.classList.remove('is-selected'));
+        btn.classList.add('is-selected', 'is-active');
+        window.setTimeout(() => {
+          btn.classList.remove('is-active');
+          if (step < QUESTIONS.length - 1) {
+            step += 1;
+            renderQuestion();
+          } else {
+            stepLabel.textContent = '7/7';
+            progressFill.style.width = '100%';
+            renderResult();
+          }
+        }, 200);
+      };
+
+      backBtn.addEventListener('click', () => {
+        if (step === 0) return;
+        step -= 1;
+        renderQuestion();
+      });
+
+      const renderResult = () => {
+        qBox.hidden = true;
+        resultBox.hidden = false;
+        backBtn.disabled = true;
+
+        const rawHours = answers.freq.value * answers.dur.value * answers.people.value;
+        const hours = Math.round(rawHours);
+        const hoursIsZero = hours === 0;
+        const yearHours = hours * 12;
+        const isCandidate = hours >= 5;
+
+        const role = ROLE[answers.role.value];
+        let modeHtml = '';
+        let badgeHtml = '';
+        if (answers.role.value === 'secretary') {
+          if (answers.mail.value === 'gmail') {
+            modeHtml = '<p class="diag-mode">スマホ版（ChatGPT）</p>';
+            badgeHtml = starBadge({ filled: 3, total: 4, label: '課長' });
+          } else {
+            modeHtml = '<p class="diag-note">PC版・スマホ版のどちらが合うかは、無料相談でメール環境を確認してから決めます。</p>';
+          }
+        } else {
+          badgeHtml = starBadge(role.badge);
+        }
+
+        let timeLine;
+        if (answers.who.value === 'owner') {
+          timeLine = hoursIsZero
+            ? '社長ご自身がこの仕事に使っている時間は、月1時間未満です。'
+            : `社長ご自身が、この仕事に毎月 約${hours}時間（年間 約${yearHours}時間）使っています。`;
+        } else {
+          timeLine = hoursIsZero
+            ? 'この仕事にかかっている時間は、月1時間未満です。'
+            : `この仕事に、毎月 約${hours}時間（年間 約${yearHours}時間）かかっています。`;
+        }
+
+        const aiNote = answers.ai.value === 'none'
+          ? '<p class="diag-note">まずは研修で、AIに慣れるところから始めることもできます。</p>' : '';
+
+        const summary = `推薦：${role.name}／月約${hours}時間／担当：${answers.who.label}／メール：${answers.mail.label}／AI：${answers.ai.label}`;
+        const formHref = FORM_BASE + encodeURIComponent(summary);
+
+        if (isCandidate) {
+          const price = (window.MARQIA_PRICE && window.MARQIA_PRICE.oneAI) || { initial: 65000, monthly: 50000 };
+          resultBox.innerHTML = `
+            <p class="diag-recommend">人事部長代行からの推薦：<strong>${role.name}</strong></p>
+            ${modeHtml}${badgeHtml}
+            <p class="diag-verdict">任せる候補です。</p>
+            <p class="diag-time">${timeLine}</p>
+            ${aiNote}
+            <div class="diag-price">
+              <p class="diag-price-title">料金の目安（社長1人×AI社員1体の場合・税抜）</p>
+              <p class="diag-price-row">導入費：${yen(price.initial)}　月額：${yen(price.monthly)}</p>
+              <a href="#price" class="diag-price-link">料金の詳しいご案内はこちら</a>
+            </div>
+            <a href="${formHref}" target="_blank" rel="noopener" class="btn btn-primary btn-lg diag-cta">この結果で無料相談する</a>
+          `;
+        } else {
+          resultBox.innerHTML = `
+            <p class="diag-recommend">人事部長代行からの推薦：<strong>${role.name}</strong></p>
+            ${modeHtml}${badgeHtml}
+            <p class="diag-verdict diag-verdict-no">今は手作業で大丈夫です。</p>
+            <p class="diag-time">${timeLine}</p>
+            ${aiNote}
+            <button type="button" class="diag-retry" id="diag-retry">別の仕事でもう一度診断する</button>
+            <a href="${formHref}" target="_blank" rel="noopener" class="diag-small-link">無料相談はこちら</a>
+          `;
+          document.getElementById('diag-retry').addEventListener('click', () => {
+            step = 0;
+            Object.keys(answers).forEach(k => delete answers[k]);
+            renderQuestion();
+          });
+        }
+      };
+
+      renderQuestion();
     })();
     // 画像のタップ・クリックで拡大（AI社員のオフィス・WAKEの潜水艦。PCでも同じ）。dialogの外側か「閉じる」で閉じる
     (() => {

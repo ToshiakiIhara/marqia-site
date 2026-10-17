@@ -352,6 +352,39 @@ section[id] { scroll-margin-top: 4.5rem; }  /* ページ内リンクで見出し
 .contact-mail-note { margin: 1rem 0 0; font-size: .85rem; color: var(--muted); }
 .contact-mail-note a { color: var(--green-dark); }
 
+/* AI社員かんたん診断 */
+.diag { display: flex; flex-direction: column; gap: 1.1rem; }
+.diag-progress { display: flex; align-items: center; gap: .75rem; }
+.diag-step-label { flex: none; font-size: .85rem; font-weight: 700; color: var(--green-dark); }
+.diag-progress-bar { flex: 1; height: 8px; border-radius: 999px; background: var(--tint); overflow: hidden; }
+.diag-progress-fill { display: block; height: 100%; width: 0; border-radius: 999px; background: var(--green); transition: width .25s ease; }
+.diag-q-text { margin: 0 0 .9rem; font-size: 1.1rem; font-weight: 600; color: var(--text); }
+.diag-choices { display: grid; gap: .6rem; }
+.diag-choice { display: block; width: 100%; min-height: 44px; padding: .7rem 1rem; text-align: left; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--text); font: inherit; font-size: .95rem; cursor: pointer; transition: background .15s, border-color .15s, color .15s; }
+.diag-choice:hover, .diag-choice:focus-visible { border-color: var(--green); }
+.diag-choice.is-selected { border-color: var(--green); background: var(--tint); }
+.diag-choice.is-active { background: var(--green); border-color: var(--green); color: #fff; }
+.diag-nav { display: flex; justify-content: flex-start; }
+.diag-back { min-height: 44px; padding: 0 1.1rem; border: 1px solid var(--line); border-radius: 999px; background: #fff; color: var(--muted); font: inherit; font-weight: 600; cursor: pointer; }
+.diag-back:disabled { opacity: .4; cursor: not-allowed; }
+.diag-recommend { margin: 0; font-size: 1.05rem; }
+.diag-mode { margin: .5rem 0 0; font-size: .85rem; color: var(--muted); }
+.diag-verdict { margin: .6rem 0 0; font-family: var(--font-head); font-weight: 500; font-size: 1.3rem; color: var(--green-dark); }
+.diag-verdict-no { color: var(--muted); font-family: var(--font-body); font-size: 1.05rem; font-weight: 700; }
+.diag-time { margin: .75rem 0 0; font-size: .95rem; }
+.diag-note { margin: .6rem 0 0; font-size: .85rem; color: var(--muted); }
+.diag-price { margin: 1.1rem 0 0; padding: 1rem 1.1rem; background: var(--gold-tint); border: 2px solid var(--gold); border-radius: 12px; }
+.diag-price-title { margin: 0 0 .4rem; font-size: .85rem; font-weight: 700; color: var(--green-dark); }
+.diag-price-row { margin: 0; font-size: 1.05rem; font-weight: 700; color: var(--green-dark); }
+.diag-price-link { display: inline-block; margin-top: .5rem; font-size: .85rem; }
+.diag-cta { display: block; margin-top: 1.25rem; text-align: center; }
+.diag-retry { display: block; width: 100%; min-height: 44px; margin-top: 1.1rem; padding: 0 1rem; border: 2px solid var(--green); border-radius: 999px; background: #fff; color: var(--green-dark); font: inherit; font-weight: 700; cursor: pointer; }
+.diag-small-link { display: inline-block; margin-top: .9rem; font-size: .82rem; color: var(--muted); }
+@media (min-width: 768px) {
+  .diag-choices { grid-template-columns: repeat(2, 1fr); }
+  .diag-cta { display: inline-block; }
+}
+
 /* AI社員のオフィス（組織図の冒頭） */
 .office { margin: 1.25rem 0 0; }
 .office img { display: block; width: 100%; height: auto; border-radius: 16px; }
