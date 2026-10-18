@@ -236,9 +236,6 @@ section[id] { scroll-margin-top: 4.5rem; }  /* ページ内リンクで見出し
 .staff-note { margin: 1rem 0 0; font-size: .75rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: .6rem; }
 
 /* 新規事業立ち上げチーム：ロードマップ（段階0〜4） */
-/* 事業計画AI：本物のアイコンができるまでの仮表示（丸に1文字） */
-.staff-icon-placeholder { display: flex; align-items: center; justify-content: center; border-radius: 50%; border: none; background: #CFE3E0; color: #3C6F6A; font-family: var(--font-head); font-weight: 600; font-size: 1.4rem; line-height: 1; }
-
 .roadmap { margin: 2rem 0 0; }
 .roadmap h3 { margin: 0 0 .4rem; font-size: 1.15rem; color: var(--green); }
 .roadmap-lead { margin: 0; color: var(--muted); }
