@@ -235,6 +235,33 @@ section[id] { scroll-margin-top: 4.5rem; }  /* ページ内リンクで見出し
 
 .staff-note { margin: 1rem 0 0; font-size: .75rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: .6rem; }
 
+/* 新規事業立ち上げチーム：ロードマップ（段階0〜4） */
+/* 事業計画AI：本物のアイコンができるまでの仮表示（丸に1文字） */
+.staff-icon-placeholder { display: flex; align-items: center; justify-content: center; border-radius: 50%; border: none; background: #CFE3E0; color: #3C6F6A; font-family: var(--font-head); font-weight: 600; font-size: 1.4rem; line-height: 1; }
+
+.roadmap { margin: 2rem 0 0; }
+.roadmap h3 { margin: 0 0 .4rem; font-size: 1.15rem; color: var(--green); }
+.roadmap-lead { margin: 0; color: var(--muted); }
+.roadmap-note { margin: .4rem 0 0; font-size: .9rem; }
+.roadmap-steps { list-style: none; margin: 1.25rem 0 0; padding: 0; display: grid; gap: .9rem; counter-reset: step; }
+.roadmap-step { position: relative; padding: 1rem 1.1rem; border-radius: 14px; }
+.roadmap-step.is-active { background: #fff; border: 1px solid var(--line); }
+.roadmap-step.is-future { background: #fafafa; border: 1px dashed #cfcfcf; }
+.roadmap-step-no { margin: 0 0 .3rem; font-family: var(--font-head); font-size: 1.1rem; font-weight: 500; color: var(--green); }
+.roadmap-step.is-future .roadmap-step-no { color: #b7b7b7; }
+.roadmap-step h4 { margin: 0 0 .2rem; font-size: 1rem; color: var(--text); }
+.roadmap-step.is-future h4 { color: var(--muted); font-weight: 500; }
+.roadmap-step-ai { margin: 0; font-size: .8rem; font-weight: 600; color: var(--green-dark); }
+.roadmap-step.is-future .roadmap-step-ai { color: #999; font-weight: 400; }
+.roadmap-step-desc { margin: .35rem 0 0; font-size: .85rem; line-height: 1.6; color: var(--muted); }
+.roadmap-step-tag { display: inline-block; margin: .6rem 0 0; padding: .1rem .6rem; border-radius: 999px; font-size: .72rem; }
+.roadmap-step.is-active .roadmap-step-tag { background: var(--tint); color: var(--green-dark); font-weight: 600; }
+.roadmap-step.is-future .roadmap-step-tag { background: transparent; border: 1px dashed #cfcfcf; color: #999; }
+@media (min-width: 768px) {
+  .roadmap-steps { grid-template-columns: repeat(5, 1fr); gap: 1.3rem; }
+  .roadmap-step:not(:last-child)::after { content: "→"; position: absolute; top: 50%; right: -1.05rem; transform: translateY(-50%); color: #cfcfcf; font-size: 1.1rem; }
+}
+
 
 /* 役職の定義（組織図の冒頭）：スマホは縦に4段、PCは表 */
 .rank-def { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 1.25rem; margin: 1.5rem 0 0; }

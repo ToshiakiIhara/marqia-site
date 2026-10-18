@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Noto+Sans+JP:wght@400;600;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
   <!-- 更新したら v= を変える（ブラウザに古いCSSが残るのを防ぐ） -->
-  <link rel="stylesheet" href="styles.css?v=20261017e" />
+  <link rel="stylesheet" href="styles.css?v=20261018a" />
 </head>
 <body>
   <header class="site-header">
@@ -92,7 +92,7 @@
           <a class="office-zoom" href="assets/images/office/office_lp.png" data-dialog="office-dialog" aria-label="AI社員のオフィスの画像を拡大する">
             <picture>
               <source srcset="assets/images/office/office_lp.webp" type="image/webp" />
-              <img src="assets/images/office/office_lp.png" alt="AI社員のオフィスのイラスト。社長秘書AI、リサーチャーAI、カスタマーサポートAI、WEBデザイナーAI、新規事業AI、在庫管理AI、セキュリティ担当AI、法務コンプラAI、WAKEが、それぞれの席で仕事をしている。在庫管理AIと法務コンプラAIは社長の確認待ち。社長室には「最終判断はここ」の札がある。" width="1920" height="1080" loading="lazy" />
+              <img src="assets/images/office/office_lp.png" alt="AI社員のオフィスのイラスト。社長秘書AI、リサーチャーAI、カスタマーサポートAI、WEBデザイナーAI、アイデア判定AI、在庫管理AI、セキュリティ担当AI、法務コンプラAI、WAKEが、それぞれの席で仕事をしている。在庫管理AIと法務コンプラAIは社長の確認待ち。社長室には「最終判断はここ」の札がある。" width="1920" height="1080" loading="lazy" />
             </picture>
             <span class="zoom-hint" aria-hidden="true">タップで拡大</span>
           </a>
@@ -207,13 +207,13 @@
 
           <article class="card staff">
             <p class="status status-joined">就職活動中</p>
-            <div class="staff-head"><img class="staff-icon" src="assets/icons/new-business.jpg" alt="" width="400" height="400" loading="lazy" /><div class="staff-name"><h3>新規事業AI</h3><p class="rank-badge"><span class="stars" aria-hidden="true">★<span class="off">☆☆☆</span></span>新人</p></div></div>
-            <p class="staff-role">担当：事業アイデアを1枚で判定<span class="nowrap">（GO／小さく試す／保留／やめる）</span></p>
+            <div class="staff-head"><img class="staff-icon" src="assets/icons/new-business.jpg" alt="" width="400" height="400" loading="lazy" /><div class="staff-name"><h3>アイデア判定AI</h3><p class="rank-badge"><span class="stars" aria-hidden="true">★<span class="off">☆☆☆</span></span>新人</p></div></div>
+            <p class="staff-role">担当：新しい事業のアイデア判定</p>
             <h4>できること</h4>
             <ul>
-              <li>事業アイデアを「勝てる理由・最大の弱点・避けるべきリスク」で整理する</li>
-              <li>今日〜1週間でできる小さな検証と、うまくいったかを判断する目安を出す</li>
-              <li>判定と、その理由を1枚にまとめる</li>
+              <li>新しい事業のアイデアを聞き取り、「やる／小さく試す／保留／やめる」を判定する</li>
+              <li>判断の軸は「お金を払いたい人が本当にいるか」</li>
+              <li>思いつきの段階で、時間とお金をかける前に筋の良し悪しを見極める</li>
             </ul>
             <div class="next-rank">
               <h4>次の昇進（今後の予定）</h4>
@@ -287,8 +287,54 @@
           </article>
         </div>
 
+        <!-- 新規事業立ち上げチーム：アイデア判定AI（就職活動中）と事業計画AI（就職活動準備中）の2体。
+             段階0・4は実線（今できること）、1〜3は next-rank と同じ点線・グレー（これから習得） -->
+        <div class="roadmap">
+          <h3>新規事業立ち上げチーム</h3>
+          <p class="roadmap-lead">アイデアの判定から、計画づくり・資金集めまで。</p>
+          <p class="roadmap-note">アイデア判定AIと事業計画AIの2体で担当します。まず計画づくりから入社し、手前の段階を順に覚えていきます。</p>
+          <ol class="roadmap-steps">
+            <li class="roadmap-step is-active">
+              <p class="roadmap-step-no">0</p>
+              <h4>アイデアを判定する</h4>
+              <p class="roadmap-step-ai">アイデア判定AI</p>
+              <p class="roadmap-step-desc">筋のいいアイデアかを見極める</p>
+              <p class="roadmap-step-tag">就職活動中</p>
+            </li>
+            <li class="roadmap-step is-future">
+              <p class="roadmap-step-no">1</p>
+              <h4>課題を確かめる</h4>
+              <p class="roadmap-step-ai">事業計画AI</p>
+              <p class="roadmap-step-desc">お客さんの困りごとが本物か、聞き取りの設計と結果の整理</p>
+              <p class="roadmap-step-tag">主任で習得</p>
+            </li>
+            <li class="roadmap-step is-future">
+              <p class="roadmap-step-no">2</p>
+              <h4>解決策を確かめる</h4>
+              <p class="roadmap-step-ai">事業計画AI</p>
+              <p class="roadmap-step-desc">小さく試す計画と、成功の目安づくり</p>
+              <p class="roadmap-step-tag">主任で習得</p>
+            </li>
+            <li class="roadmap-step is-future">
+              <p class="roadmap-step-no">3</p>
+              <h4>売れる形を見極める</h4>
+              <p class="roadmap-step-ai">事業計画AI</p>
+              <p class="roadmap-step-desc">継続率・解約・顧客1人あたりの収支で判定</p>
+              <p class="roadmap-step-tag">課長で習得</p>
+            </li>
+            <li class="roadmap-step is-active">
+              <p class="roadmap-step-no">4</p>
+              <h4>計画を立て、資金を集める</h4>
+              <p class="roadmap-step-ai">事業計画AI</p>
+              <p class="roadmap-step-desc">事業計画書・収支Excel・採用計画・補助金・融資・資本政策</p>
+              <p class="roadmap-step-tag">新人（入社時はここから）</p>
+            </li>
+          </ol>
+        </div>
+
         <h3 class="sub-h">就職活動準備中</h3>
         <div class="grid grid-3 grid-training">
+          <article class="card card-training"><p class="status status-training">就職活動準備中</p><!-- 本物のアイコンができたら assets/icons/ に置いて img に戻す --><div class="staff-head"><span class="staff-icon staff-icon-placeholder" aria-hidden="true">計</span><h3>事業計画AI</h3></div><p class="role">事業計画書と月次の収支シミュレーション（Excel）を作成し、資金調達や社内の意思決定に使える形にまとめます。元ベンチャーキャピタリストである代表が、実際の資金調達の現場で作ってきた計画書の型を引き継いでいます。</p></article>
           <article class="card card-training"><p class="status status-training">就職活動準備中</p><div class="staff-head"><img class="staff-icon" src="assets/icons/sns-marketer.jpg" alt="" width="400" height="400" loading="lazy" /><h3>SNS<wbr />マーケターAI</h3></div><p class="role">SNSマーケティング担当</p></article>
           <article class="card card-training"><p class="status status-training">就職活動準備中</p><div class="staff-head"><img class="staff-icon" src="assets/icons/accounting.jpg" alt="" width="400" height="400" loading="lazy" /><h3>経理AI</h3></div><p class="role">経理担当</p></article>
           <article class="card card-training"><p class="status status-training">就職活動準備中</p><div class="staff-head"><img class="staff-icon" src="assets/icons/system-engineer.jpg" alt="" width="400" height="400" loading="lazy" /><h3>システム<wbr />エンジニアAI</h3></div><p class="role">システム開発担当</p></article>
@@ -649,7 +695,7 @@
         inventory:   { name: '在庫管理AI',           badge: { filled: 1, total: 4, label: '新人' } },
         legal:       { name: '法務コンプラAI',       badge: { filled: 1, total: 4, label: '新人' } },
         proofreader: { name: '校閲係AI',             badge: { filled: 1, total: 4, label: '新人' } },
-        newbiz:      { name: '新規事業AI',           badge: { filled: 1, total: 4, label: '新人' } },
+        newbiz:      { name: 'アイデア判定AI',        badge: { filled: 1, total: 4, label: '新人' } },
       };
 
       const QUESTIONS = [
