@@ -102,6 +102,8 @@ section[id] { scroll-margin-top: 7.75rem; }  /* ページ内リンクで見出�
 .status-joined { background: var(--green); color: #fff; }
 .status-done { border: 1px solid var(--green); color: var(--green); }
 .status-training { background: var(--pale); color: var(--green-dark); }
+/* 就職活動中・準備中のバッジは一回り大きく（稼働中・納品済み・社長秘書AIのPC/スマホ版は対象外） */
+.grid-joined .status-joined, .grid-training .status.status-training, .roadmap-step .status-joined { font-size: .88rem; }
 
 .dont li::marker { content: "× "; color: var(--green); }
 .todo { color: #8a6d2f; font-style: italic; }
@@ -247,8 +249,8 @@ section[id] { scroll-margin-top: 7.75rem; }  /* ページ内リンクで見出�
 
 .staff-note { margin: 1rem 0 0; font-size: .75rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: .6rem; }
 
-/* 新規事業立ち上げチーム：ロードマップ（段階0〜4） */
-.roadmap { margin: 2rem 0 0; }
+/* 新規事業立ち上げチーム：ロードマップ（段階0〜4）。ひとつの囲み（薄い黄色系） */
+.roadmap { margin: 2rem 0 0; background: #FBF6E8; border: 1px solid #E8D9A8; border-radius: 14px; padding: 1.1rem 1.1rem 1.25rem; }
 .roadmap h3 { margin: 0 0 .4rem; font-size: 1.15rem; color: var(--green); }
 .roadmap-lead { margin: 0; color: var(--muted); }
 .roadmap-note { margin: .4rem 0 0; font-size: .9rem; }
@@ -260,13 +262,18 @@ section[id] { scroll-margin-top: 7.75rem; }  /* ページ内リンクで見出�
 .roadmap-step.is-future .roadmap-step-no { color: #b7b7b7; }
 .roadmap-step h4 { margin: 0 0 .2rem; font-size: 1rem; color: var(--text); }
 .roadmap-step.is-future h4 { color: var(--muted); font-weight: 500; }
+.roadmap-step-head { display: flex; align-items: center; gap: .5rem; margin: 0 0 .2rem; }
+.roadmap-step-head h4 { margin: 0; }
+.roadmap-step-icon { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; flex: none; }
 .roadmap-step-ai { margin: 0; font-size: .8rem; font-weight: 600; color: var(--green-dark); }
 .roadmap-step.is-future .roadmap-step-ai { color: #999; font-weight: 400; }
 .roadmap-step-desc { margin: .35rem 0 0; font-size: .85rem; line-height: 1.6; color: var(--muted); }
 .roadmap-step-tag { display: inline-block; margin: .6rem 0 0; padding: .1rem .6rem; border-radius: 999px; font-size: .72rem; }
-.roadmap-step.is-active .roadmap-step-tag { background: var(--tint); color: var(--green-dark); font-weight: 600; }
 .roadmap-step.is-future .roadmap-step-tag { background: transparent; border: 1px dashed #cfcfcf; color: #999; }
+.roadmap-step > .status-joined { margin: .6rem 0 0; }
+.roadmap-step .rank-badge { margin: .3rem 0 0; }
 @media (min-width: 768px) {
+  .roadmap { padding: 1.5rem 1.75rem 1.6rem; }
   .roadmap-steps { grid-template-columns: repeat(5, 1fr); gap: 1.3rem; }
   .roadmap-step:not(:last-child)::after { content: "→"; position: absolute; top: 50%; right: -1.05rem; transform: translateY(-50%); color: #cfcfcf; font-size: 1.1rem; }
 }
