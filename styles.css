@@ -260,6 +260,18 @@ section[id] { scroll-margin-top: 4.5rem; }  /* ページ内リンクで見出し
   .roadmap-step:not(:last-child)::after { content: "→"; position: absolute; top: 50%; right: -1.05rem; transform: translateY(-50%); color: #cfcfcf; font-size: 1.1rem; }
 }
 
+/* /flow/ ページ：導入の流れ（段階1〜6）。ロードマップ（.roadmap-step）と同じ見た目を6段階用に流用 */
+.flow-steps { list-style: none; margin: 1.5rem 0 0; padding: 0; display: grid; gap: .9rem; }
+.flow-step { position: relative; padding: 1rem 1.1rem; border-radius: 14px; background: #fff; border: 1px solid var(--line); }
+.flow-step-no { margin: 0 0 .3rem; font-family: var(--font-head); font-size: 1.1rem; font-weight: 500; color: var(--green); }
+.flow-step h4 { margin: 0 0 .2rem; font-size: 1rem; color: var(--text); }
+.flow-step-desc { margin: .35rem 0 0; font-size: .85rem; line-height: 1.6; color: var(--muted); }
+.flow-step-tag { display: inline-block; margin: .6rem 0 0; padding: .1rem .6rem; border-radius: 999px; font-size: .72rem; background: var(--tint); color: var(--green-dark); font-weight: 600; }
+@media (min-width: 768px) {
+  .flow-steps { grid-template-columns: repeat(3, 1fr); gap: 1.3rem; }
+  .flow-step:not(:nth-child(3n))::after { content: "→"; position: absolute; top: 50%; right: -1.05rem; transform: translateY(-50%); color: #cfcfcf; font-size: 1.1rem; }
+}
+
 
 /* 役職の定義（組織図の冒頭）：スマホは縦に4段、PCは表 */
 .rank-def { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 1.25rem; margin: 1.5rem 0 0; }
@@ -366,7 +378,7 @@ section[id] { scroll-margin-top: 4.5rem; }  /* ページ内リンクで見出し
 }
 
 /* よくある質問 */
-.faq { margin: 0; }
+.faq { margin: 0; display: grid; gap: .9rem; }
 .faq-item { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 1.25rem; }
 .faq dt { font-family: var(--font-head); font-size: 1.15rem; color: var(--green-dark); }
 .faq dt::before { content: "Q. "; color: var(--green); }
