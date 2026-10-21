@@ -43,10 +43,21 @@ h4 { font-size: .9rem; margin: 1rem 0 .25rem; color: var(--green); }
 .sp { display: inline; }
 
 /* ヘッダー */
-section[id] { scroll-margin-top: 4.5rem; }  /* ページ内リンクで見出しが固定ヘッダーに隠れないように */
+section[id] { scroll-margin-top: 7.75rem; }  /* ページ内リンクで見出しが固定ヘッダーに隠れないように（スマホは2段ヘッダー分） */
 .site-header { position: sticky; top: 0; z-index: 10; background: rgba(255, 255, 255, .95); border-bottom: 1px solid var(--line); }
-.header-inner { display: flex; align-items: center; justify-content: space-between; padding: .75rem 0; }
+.header-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; padding: .75rem 0; }
 .logo { font-family: "Cormorant Garamond", serif; font-weight: 300; font-size: 1.2rem; letter-spacing: .2em; text-transform: uppercase; color: var(--green); text-decoration: none; }
+
+/* グローバルメニュー：スマホはヘッダー下の2段目に横スクロール、PCはロゴとボタンの間に1行で */
+.site-nav { order: 3; flex-basis: 100%; display: flex; gap: .25rem; margin-top: .5rem; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.nav-link { display: inline-flex; align-items: center; flex: none; min-height: 44px; padding: 0 .6rem; font-size: .85rem; color: var(--text); text-decoration: none; white-space: nowrap; }
+.nav-link:hover, .nav-link:focus-visible { color: var(--green-dark); }
+.nav-link.is-current { color: var(--green-dark); font-weight: 700; }
+@media (min-width: 768px) {
+  section[id] { scroll-margin-top: 4.75rem; }
+  .header-inner { flex-wrap: nowrap; }
+  .site-nav { order: 0; flex-basis: auto; flex: 1; justify-content: center; margin-top: 0; overflow-x: visible; gap: .75rem; }
+}
 
 /* ボタン */
 .btn { display: inline-block; min-height: 44px; padding: .75rem 1.5rem; border-radius: 2px; text-decoration: none; font-weight: 600; }
@@ -493,6 +504,7 @@ section[id] { scroll-margin-top: 4.5rem; }  /* ページ内リンクで見出し
 .price-table tbody th { font-weight: 700; color: var(--green-dark); }
 .price-table td { font-size: .9rem; }
 .price-table td .price { display: inline-block; margin-top: .2rem; font-size: 1.1rem; }
+.price-table a, .price-common a { color: var(--green-dark); text-decoration: underline; }
 
 /* 計算機：「② 育てる」の人事部長の枠と同じクリーム色 */
 .calc { margin-top: 1.25rem; padding: 1.1rem 1.1rem 1.25rem; background: var(--gold-tint); border: 2px solid var(--gold); border-radius: 14px; }
@@ -531,6 +543,10 @@ section[id] { scroll-margin-top: 4.5rem; }  /* ページ内リンクで見出し
   .price-table tbody th { width: 9rem; white-space: nowrap; }
   .price-table td:last-child { width: 12rem; }
   .price-table td .price { margin-top: 0; }
+  .compare-table { table-layout: fixed; }
+  .compare-table th:first-child, .compare-table td:first-child { width: 18%; }
+  .compare-table th:not(:first-child), .compare-table td:not(:first-child) { width: 41%; }
+  .compare-table tbody th { width: 18%; white-space: normal; }
   .calc { padding: 1.4rem 1.6rem 1.5rem; }
   .calc-inputs, .calc-results { grid-template-columns: 1fr 1fr; }
 }
