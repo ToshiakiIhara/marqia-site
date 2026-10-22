@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Noto+Sans+JP:wght@400;600;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
   <!-- 更新したら v= を変える（ブラウザに古いCSSが残るのを防ぐ） -->
-  <link rel="stylesheet" href="styles.css?v=20261021c" />
+  <link rel="stylesheet" href="styles.css?v=20261022b" />
 </head>
 <body>
   <header class="site-header">
@@ -542,10 +542,33 @@
       </div>
     </section>
 
-    <!-- ④ 自社で稼働中（非売品） -->
+    <!-- ④ 自社での実践（スマイルカーズ鹿嶋店の事例・WAKE） -->
     <section id="inhouse" class="section section-tint">
       <div class="container">
-        <h2>自社で稼働中（非売品）</h2>
+        <h2>自社での実践</h2>
+        <article class="card case-card">
+          <h3>スマイルカーズ鹿嶋店</h3>
+          <figure class="office case-figure">
+            <!-- タップで拡大（JSが動かないときはPNGを直接開く） -->
+            <a class="office-zoom" href="assets/images/case/case1_lp.png" data-dialog="case-dialog" aria-label="スマイルカーズ鹿嶋店の事例の図を拡大する">
+              <picture>
+                <source srcset="assets/images/case/case1_lp.webp" type="image/webp" />
+                <img src="assets/images/case/case1_lp.png" alt="車の買取店を、集客から出品まで、AI社員と回す図。1 集める：ホームページと地図のお店の情報づくり（人が判断：公開するか）。2 会う・査定する：訪問前に営業の練習相手（人が判断：本番のトーク）、査定は写真を送ると管理表に記入して提示額の案を出す（人が判断：提示額）、帰り道のひとことで見積書をつくる（人が判断：お客様に送るか）。3 仕入れて、売る：台帳と粗利の管理、出品のサポート（人が判断：出品するか）、必要書類の準備（準備中）。" width="1200" height="755" loading="lazy" />
+              </picture>
+              <span class="zoom-hint" aria-hidden="true">タップで拡大</span>
+            </a>
+            <figcaption>代表が経営する出張買取専門の車買取店で、集客から査定・見積・出品の準備まで、7つの仕事をAI社員が担当しています。人は増やしていません。公開・トーク・提示額・送付・出品の5か所は、必ず人が判断します。</figcaption>
+          </figure>
+        </article>
+        <dialog class="office-dialog" id="case-dialog" aria-label="スマイルカーズ鹿嶋店の事例の図（拡大）">
+          <div class="office-dialog-bar"><span class="scroll-hint">左右にスクロールできます</span><button type="button" class="office-close">閉じる</button></div>
+          <div class="office-scroll">
+            <picture>
+              <source srcset="assets/images/case/case1_lp.webp" type="image/webp" />
+              <img src="assets/images/case/case1_lp.png" alt="" width="1200" height="755" loading="lazy" />
+            </picture>
+          </div>
+        </dialog>
         <article class="card card-wake">
           <img class="wake-logo" src="assets/images/wake-logo.jpg" alt="WAKE ロゴ（クジラ）" width="845" height="310" loading="lazy" />
           <h3>トレードAIチーム WAKE</h3>
@@ -649,7 +672,7 @@
   <footer class="site-footer">
     <div class="container">
       <p class="ai-note">サイト内のイメージ画像は生成AIで制作しています。</p>
-      <p>連絡先：t.ihara@marqia.jp</p>
+      <p>連絡先：t.ihara@marqia.jp　<a href="https://note.com/marqia_ihara" target="_blank" rel="noopener">note</a>　<a href="https://www.linkedin.com/in/toshiaki-ihara" target="_blank" rel="noopener">LinkedIn</a></p>
       <p>© 2026 MARQIA</p>
     </div>
   </footer>

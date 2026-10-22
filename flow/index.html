@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Noto+Sans+JP:wght@400;600;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
   <!-- 更新したら v= を変える（ブラウザに古いCSSが残るのを防ぐ） -->
-  <link rel="stylesheet" href="../styles.css?v=20261021c" />
+  <link rel="stylesheet" href="../styles.css?v=20261022b" />
 </head>
 <body>
   <header class="site-header">
@@ -55,6 +55,36 @@
           </tbody>
         </table>
         <p class="price-note">どちらが合うかは、最初から決めなくて大丈夫です。下の「3. 採用計画」で一緒に決めます。</p>
+
+        <div class="card custom-example">
+          <h3>オーダーメイドの例：ベテランの判断を残すAI社員</h3>
+          <p>ベテランが解決したトラブルや判断を、「症状・判断根拠・対応・結果」の4つで聞き取り、記録として残します。記録がたまると、AI社員が似た事例を探し、次の担当者が判断するための材料を出せるようになります。実行するかを決めるのは、いつも担当の方です。</p>
+          <p>くわしい考え方は<a href="https://note.com/marqia_ihara/n/n774059510ec1" target="_blank" rel="noopener">noteで紹介</a>しています。</p>
+        </div>
+
+        <div class="card case-card custom-example">
+          <h3>オーダーメイドの実例：車の買取店を、集客から出品まで、AI社員と回す</h3>
+          <figure class="office case-figure">
+            <!-- タップで拡大（JSが動かないときはPNGを直接開く） -->
+            <a class="office-zoom" href="../assets/images/case/case1_lp.png" data-dialog="case-dialog" aria-label="車の買取店の事例の図を拡大する">
+              <picture>
+                <source srcset="../assets/images/case/case1_lp.webp" type="image/webp" />
+                <img src="../assets/images/case/case1_lp.png" alt="車の買取店を、集客から出品まで、AI社員と回す図。1 集める：ホームページと地図のお店の情報づくり（人が判断：公開するか）。2 会う・査定する：訪問前に営業の練習相手（人が判断：本番のトーク）、査定は写真を送ると管理表に記入して提示額の案を出す（人が判断：提示額）、帰り道のひとことで見積書をつくる（人が判断：お客様に送るか）。3 仕入れて、売る：台帳と粗利の管理、出品のサポート（人が判断：出品するか）、必要書類の準備（準備中）。" width="1200" height="755" loading="lazy" />
+              </picture>
+              <span class="zoom-hint" aria-hidden="true">タップで拡大</span>
+            </a>
+            <figcaption>代表が経営する出張買取専門の車買取店での自社導入です。お客様を集めるところはセミカスタマイズのAI社員、査定から出品まではこの店のためにつくったオーダーメイドのAI社員が担当しています。公開・トーク・提示額・送付・出品の5か所は、必ず人が判断します。AIに渡してよい情報のルールを先に決めてから導入しました。</figcaption>
+          </figure>
+        </div>
+        <dialog class="office-dialog" id="case-dialog" aria-label="車の買取店の事例の図（拡大）">
+          <div class="office-dialog-bar"><span class="scroll-hint">左右にスクロールできます</span><button type="button" class="office-close">閉じる</button></div>
+          <div class="office-scroll">
+            <picture>
+              <source srcset="../assets/images/case/case1_lp.webp" type="image/webp" />
+              <img src="../assets/images/case/case1_lp.png" alt="" width="1200" height="755" loading="lazy" />
+            </picture>
+          </div>
+        </dialog>
       </div>
     </section>
 
@@ -81,6 +111,7 @@
             <p class="flow-step-no">3</p>
             <h4>採用計画</h4>
             <p class="flow-step-desc">どの業務を、どのAI社員に任せるかを決めます。セミカスタマイズで足りるか、オーダーメイドでつくるかもここで決めます。あわせて、人が最終確認する場所と、AIに渡してよい情報・渡さない情報などの社内ルールを決めます。</p>
+            <p class="flow-step-desc">AI社員に教えるルールと、させない操作の決め方は、<a href="https://note.com/marqia_ihara/n/n4dc1cfcafce6" target="_blank" rel="noopener">noteでも紹介</a>しています。</p>
             <p class="flow-step-tag">成果物：AI社員の採用計画書（費用と、減らせる時間の見込み）、AIの利用ルール</p>
           </li>
           <li class="flow-step">
@@ -164,9 +195,30 @@
   <footer class="site-footer">
     <div class="container">
       <p class="ai-note">サイト内のイメージ画像は生成AIで制作しています。</p>
-      <p>連絡先：t.ihara@marqia.jp</p>
+      <p>連絡先：t.ihara@marqia.jp　<a href="https://note.com/marqia_ihara" target="_blank" rel="noopener">note</a>　<a href="https://www.linkedin.com/in/toshiaki-ihara" target="_blank" rel="noopener">LinkedIn</a></p>
       <p>© 2026 MARQIA</p>
     </div>
   </footer>
+  <script>
+    // 画像のタップ・クリックで拡大（トップページと同じ）。dialogの外側か「閉じる」で閉じる
+    (() => {
+      document.querySelectorAll('.office-zoom[data-dialog]').forEach(link => {
+        const dlg = document.getElementById(link.dataset.dialog);
+        if (!dlg || typeof dlg.showModal !== 'function') return;
+        const scroller = dlg.querySelector('.office-scroll');
+        const fit = () => dlg.classList.toggle('is-overflow', scroller.scrollWidth > scroller.clientWidth + 1);
+        link.addEventListener('click', e => {
+          e.preventDefault();
+          dlg.showModal();
+          scroller.scrollLeft = (scroller.scrollWidth - scroller.clientWidth) / 2;
+          fit();
+          dlg.querySelector('.office-scroll img').decode?.().then(fit, () => {});
+        });
+        addEventListener('resize', () => { if (dlg.open) fit(); });
+        dlg.querySelector('.office-close').addEventListener('click', () => dlg.close());
+        dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+      });
+    })();
+  </script>
 </body>
 </html>

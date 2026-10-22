@@ -476,6 +476,11 @@ section[id] { scroll-margin-top: 7.75rem; }  /* ページ内リンクで見出�
 }
 /* 拡大表示：上の帯は図の色に合わせる（WAKEは紺）。スクロールの案内ははみ出すときだけ */
 .office-dialog.is-wake { background: #0F1E33; }
+/* 自社での実践：スマイルカーズ鹿嶋店の事例（WAKEの前） */
+.case-card { margin-bottom: 1.25rem; }
+.case-card h3 { margin: 0; }
+.case-figure { margin: .75rem 0 0; }
+.case-figure .office-zoom { border: 1px solid var(--line); border-radius: 12px; }
 .office-dialog .scroll-hint { visibility: hidden; }
 .office-dialog.is-overflow .scroll-hint { visibility: visible; }
 @media (min-width: 768px) {
@@ -502,6 +507,11 @@ section[id] { scroll-margin-top: 7.75rem; }  /* ページ内リンクで見出�
 .plus { color: var(--muted); font-weight: 700; }
 .price-desc { margin: 0; font-size: .88rem; color: var(--muted); }
 .price-note { margin: .4rem 0 0; font-size: .85rem; color: var(--muted); }
+/* /flow/：オーダーメイドの具体例 */
+.custom-example { margin-top: 1.5rem; }
+.custom-example h3 { margin: 0 0 .5rem; font-size: 1.1rem; color: var(--green); }
+.custom-example p { margin: .5rem 0 0; }
+.custom-example a, .flow-step-desc a, .site-footer a { color: var(--green-dark); text-decoration: underline; }
 
 /* 研修の表：スマホはカード状に縦積み */
 .price-table { width: 100%; border-collapse: collapse; margin-top: .25rem; }
