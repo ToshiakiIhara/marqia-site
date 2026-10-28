@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Noto+Sans+JP:wght@400;600;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
   <!-- 更新したら v= を変える（ブラウザに古いCSSが残るのを防ぐ） -->
-  <link rel="stylesheet" href="styles.css?v=20261022b" />
+  <link rel="stylesheet" href="styles.css?v=20261028a" />
 </head>
 <body>
   <header class="site-header">
@@ -428,89 +428,14 @@
       </div>
     </section>
 
-    <!-- 料金：金額は HTML に開業記念価格（launch）で書いてある（JavaScript が動かなくても表示される）。
-         設定は末尾の <script> の PRICE_SET / CAMPAIGN_END / CAMPAIGN_OPEN。
-         ・PRICE_SET = "standard" にすると、data-yen を持つ金額と計算機が2倍になる（交通費の実費は対象外）
-         ・「開業記念価格」の枠は、期限内・CAMPAIGN_OPEN・PRICE_SET が "launch" のときだけ表示（HTMLでは hidden） -->
+    <!-- 料金：2026-10-28から一時的に金額を出さず、すべて「お見積もり」にしている。
+         元の料金表・計算機・開業記念価格はタグ price-shown-20261028 の index.html にある -->
     <section id="price" class="section">
       <div class="container">
-        <h2>料金</h2>
-        <p class="lead">料金は、実際にかかる作業時間がベースです。表示価格はすべて税抜です。</p>
-
-        <div class="grid service-grid price-grid">
-          <article class="card service-group price-learn">
-            <div class="service-head"><h3>学ぶ</h3><p class="service-tagline">研修・セミナー｜自分でAIを使える・作れるようになる</p></div>
-            <table class="price-table">
-              <thead><tr><th scope="col">種類</th><th scope="col">説明</th><th scope="col">2時間の場合</th></tr></thead>
-              <tbody>
-                <tr><th scope="row">テンプレ</th><td>既存の資料をそのまま使います。</td><td><span class="price" data-yen="20000">20,000円</span></td></tr>
-                <tr><th scope="row">セミカスタム</th><td>業種に合わせて、事例や画面を差し替えます。</td><td><span class="price" data-yen="40000">40,000円</span></td></tr>
-                <tr><th scope="row">フルカスタム</th><td>事前にヒアリングして、御社専用の資料を作ります。</td><td><span class="price" data-yen="60000-80000">60,000〜80,000円</span></td></tr>
-              </tbody>
-            </table>
-            <p class="price-basis"><span class="price-basis-label">料金の考え方</span>（本番の時間 ＋ 準備の時間）× <span class="price" data-yen="10000">10,000円<span class="per">／時間</span></span></p>
-            <p class="price-note">※参加者が10名を超える場合は、1名あたり<span class="price" data-yen="5000">5,000円</span>を加算します。</p>
-            <p class="price-note">※法人研修・団体向けセミナーは、内容に合わせてお見積もりします。</p>
-          </article>
-
-          <article class="card service-group price-entrust">
-            <div class="service-head"><h3>任せる</h3><p class="service-tagline">AI社員を採用して、育てる</p></div>
-            <div class="campaign" id="campaign" hidden>
-              <p class="campaign-title">開業記念価格<span class="campaign-term">（2026年11月30日まで・<wbr />先着5社）</span></p>
-              <p class="campaign-body">MARQIAの開業を記念して、第1期にご導入いただく5社に限り、この価格でお引き受けします。<br />第1期の会社さまは、ご契約が続くかぎり、月額の単価（基本料・AI社員1体あたり・ご利用者1人あたり）をこの価格のまま据え置きます。</p>
-            </div>
-
-            <section class="entrust-step">
-              <h4 class="step-label">① 採用する（導入費・初回のみ）</h4>
-              <p class="formula"><span class="chip">会社ごと <span class="price" data-yen="25000">25,000円</span></span><span class="plus">＋</span><span class="chip">AI社員1体 <span class="price" data-yen="30000">30,000円</span></span><span class="plus">＋</span><span class="chip">使う人1人 <span class="price" data-yen="10000">10,000円</span></span></p>
-              <p class="price-desc">環境の確認、AI社員の設定とテスト、PCの設定と使い方のご説明まで。</p>
-            </section>
-
-            <section class="entrust-step">
-              <h4 class="step-label">② 育てる（月額顧問）</h4>
-              <p class="formula"><span class="chip">基本料 <span class="price" data-yen="30000">30,000円</span></span><span class="plus">＋</span><span class="chip">AI社員1体 <span class="price" data-yen="15000">15,000円</span></span><span class="plus">＋</span><span class="chip">使う人1人 <span class="price" data-yen="5000">5,000円</span></span></p>
-              <p class="price-desc">育てる・任せる範囲を決める・評価する・入れ替える。定例面談は原則オンラインです。</p>
-            </section>
-
-            <div class="calc" id="calc">
-              <p class="calc-title">御社の場合で計算してみる</p>
-              <div class="calc-inputs">
-                <div class="calc-input">
-                  <span class="calc-label" id="calc-a-label">入れるAI社員</span>
-                  <div class="stepper">
-                    <button type="button" class="step-btn" data-target="a" data-step="-1" aria-label="AI社員を1体減らす">−</button>
-                    <output class="step-val" id="calc-a" aria-labelledby="calc-a-label" aria-live="polite">1</output><span class="step-unit">体</span>
-                    <button type="button" class="step-btn" data-target="a" data-step="1" aria-label="AI社員を1体増やす">＋</button>
-                  </div>
-                </div>
-                <div class="calc-input">
-                  <span class="calc-label" id="calc-u-label">使う人（PCの台数）</span>
-                  <div class="stepper">
-                    <button type="button" class="step-btn" data-target="u" data-step="-1" aria-label="使う人を1人減らす">−</button>
-                    <output class="step-val" id="calc-u" aria-labelledby="calc-u-label" aria-live="polite">1</output><span class="step-unit">人</span>
-                    <button type="button" class="step-btn" data-target="u" data-step="1" aria-label="使う人を1人増やす">＋</button>
-                  </div>
-                </div>
-              </div>
-              <div class="calc-results">
-                <div class="calc-result"><p class="calc-result-label">① 採用する（導入費・初回のみ）</p><p class="calc-result-val" id="calc-initial"><span class="price" data-yen="65000">65,000円</span></p></div>
-                <div class="calc-result"><p class="calc-result-label">② 育てる（月額顧問）</p><p class="calc-result-val" id="calc-monthly"><span class="price" data-yen="50000">50,000円<span class="per">／月</span></span></p></div>
-              </div>
-              <p class="calc-note">AI社員はあとから追加・入れ替えができます。追加するときは導入費が1体<span class="price" data-yen="30000">30,000円</span>かかり、月額が<span class="price" data-yen="15000">15,000円</span>増えます。</p>
-            </div>
-          </article>
-        </div>
-
-        <div class="price-common">
-          <p class="price-common-title">共通のご案内</p>
-          <ul>
-            <li>交通費は、全国一律で実費をいただきます。</li>
-            <li>片道1時間を超える移動は、超えた分を1時間あたり<span class="price" data-yen="5000">5,000円</span>でいただきます。</li>
-            <li>業務に合わせて一からAI社員を作るオーダーメイドは、別途お見積もりします。</li>
-          </ul>
-        </div>
-
+        <h2>料金について</h2>
+        <p class="lead">料金は、業務の内容、AI社員の数、使う人の数、サポートの量に合わせてお見積もりします。1人で事業をされている方から、部署単位での導入まで、ご予算に合わせた始め方をご提案します。まずは30分の無料相談で、お気軽にご相談ください。</p>
         <p class="price-cta"><a href="https://forms.gle/1FFbGvzCfn5TM7YZ7" class="btn btn-primary btn-lg" target="_blank" rel="noopener">30分の無料相談を申し込む</a></p>
+        <p class="price-note price-travel">交通費は実費をいただきます。</p>
       </div>
     </section>
 
@@ -678,59 +603,6 @@
   </footer>
   <script>
 
-    // ===== 料金の設定（ここだけ変える） =====
-    // PRICE_SET：今の値段は "launch"。"standard" にすると、任せる・学ぶ・移動費の金額がすべて2倍になる（交通費の実費は変わらない）
-    // CAMPAIGN_END：「開業記念価格」の枠を出す締め切り（日本時間 2026-11-30 23:59 まで）
-    // CAMPAIGN_OPEN：先着5社が埋まったら false にする（枠だけ消える。金額はそのまま）
-    const PRICE_SET = 'launch';
-    const CAMPAIGN_END = new Date('2026-11-30T23:59:59+09:00');
-    const CAMPAIGN_OPEN = true;
-    // ======================================
-    (() => {
-      const section = document.getElementById('price');
-      if (!section) return;
-      const factor = PRICE_SET === 'standard' ? 2 : 1;
-      const yen = n => n.toLocaleString('ja-JP') + '円';
-
-      // 他のセクション（AI社員かんたん診断など）から料金を参照するための窓口。表示ロジックには関与しない
-      window.MARQIA_PRICE = {
-        priceSet: PRICE_SET,
-        factor,
-        oneAI: {  // 社長1人×AI社員1体の金額
-          initial: (25000 + 30000 + 10000) * factor,
-          monthly: (30000 + 15000 + 5000) * factor,
-        },
-      };
-
-      // 金額：HTML に書いた開業記念価格（data-yen）× factor
-      section.querySelectorAll('[data-yen]').forEach(el => {
-        const unit = el.querySelector('.per');
-        el.textContent = el.dataset.yen.split('-').map(n => (Number(n) * factor).toLocaleString('ja-JP')).join('〜') + '円';
-        if (unit) el.appendChild(unit);
-      });
-      // 「開業記念価格」の枠：期限内・募集中・開業記念価格のときだけ
-      document.getElementById('campaign').hidden = !(PRICE_SET === 'launch' && CAMPAIGN_OPEN && Date.now() <= CAMPAIGN_END.getTime());
-
-      // 計算機：a = AI社員の数（1〜10）、u = 使う人の数（1〜30）
-      const LIMIT = { a: [1, 10], u: [1, 30] }, val = { a: 1, u: 1 };
-      const render = () => {
-        const { a, u } = val;
-        document.getElementById('calc-a').textContent = a;
-        document.getElementById('calc-u').textContent = u;
-        document.getElementById('calc-initial').innerHTML = `<span class="price">${yen((25000 + 30000 * a + 10000 * u) * factor)}</span>`;
-        document.getElementById('calc-monthly').innerHTML = `<span class="price">${yen((30000 + 15000 * a + 5000 * u) * factor)}<span class="per">／月</span></span>`;
-        section.querySelectorAll('.step-btn').forEach(btn => {
-          const [min, max] = LIMIT[btn.dataset.target], v = val[btn.dataset.target] + Number(btn.dataset.step);
-          btn.disabled = v < min || v > max;
-        });
-      };
-      section.querySelectorAll('.step-btn').forEach(btn => btn.addEventListener('click', () => {
-        const t = btn.dataset.target, [min, max] = LIMIT[t];
-        val[t] = Math.min(max, Math.max(min, val[t] + Number(btn.dataset.step)));
-        render();
-      }));
-      render();
-    })();
     // AI社員かんたん診断：外部への送信・保存はしない（結果の無料相談リンクを開く操作のみ、ユーザーの明示的なクリックで例外）
     (() => {
       const stepLabel = document.getElementById('diag-step-label');
@@ -792,7 +664,6 @@
 
       let step = 0;
       const answers = {};
-      const yen = n => n.toLocaleString('ja-JP') + '円';
       const starBadge = b => `<p class="rank-badge"><span class="stars" aria-hidden="true">${'★'.repeat(b.filled)}<span class="off">${'☆'.repeat(b.total - b.filled)}</span></span>${b.label}</p>`;
       const FORM_BASE = 'https://docs.google.com/forms/d/e/1FAIpQLSdVkfefOUWkqWeuvLCPAIyQNsxRuEGjWnN5wUa2mNjtTUnMzw/viewform?usp=pp_url&entry.681052827=';
 
@@ -882,18 +753,12 @@
         const formHref = FORM_BASE + encodeURIComponent(summary);
 
         if (isCandidate) {
-          const price = (window.MARQIA_PRICE && window.MARQIA_PRICE.oneAI) || { initial: 65000, monthly: 50000 };
           resultBox.innerHTML = `
             <p class="diag-recommend">人事部長代行からの推薦：<strong>${role.name}</strong></p>
             ${modeHtml}${badgeHtml}
             <p class="diag-verdict">任せる候補です。</p>
             <p class="diag-time">${timeLine}</p>
             ${aiNote}
-            <div class="diag-price">
-              <p class="diag-price-title">料金の目安（社長1人×AI社員1体の場合・税抜）</p>
-              <p class="diag-price-row">導入費：${yen(price.initial)}　月額：${yen(price.monthly)}</p>
-              <a href="#price" class="diag-price-link">料金の詳しいご案内はこちら</a>
-            </div>
             <a href="${formHref}" target="_blank" rel="noopener" class="btn btn-primary btn-lg diag-cta">この結果で無料相談する</a>
           `;
         } else {

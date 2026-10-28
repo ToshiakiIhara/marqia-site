@@ -545,6 +545,7 @@ section[id] { scroll-margin-top: 7.75rem; }  /* ページ内リンクで見出�
 .price-common-title { margin: 0 0 .35rem; font-weight: 700; color: var(--green-dark); }
 .price-common ul { margin: 0; padding-left: 1.2rem; font-size: .92rem; }
 .price-cta { margin: 1.5rem 0 0; text-align: center; }
+.price-travel { text-align: center; }
 
 @media (max-width: 767px) {
   .calc-input { flex-wrap: wrap; }   /* スマホは計算機の見出しを入力の上に置く */
