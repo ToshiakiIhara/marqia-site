@@ -218,6 +218,10 @@ section[id] { scroll-margin-top: 7.75rem; }  /* ページ内リンクで見出�
 .name .kana { display: inline; font-size: .85rem; margin-left: .25rem; color: var(--muted); }
 .bio { margin: .75rem 0 0; font-size: .95rem; }
 .bio-note { margin: .5rem 0 0; font-size: .78rem; color: var(--muted); }
+/* 代表プロフィール：冒頭の2行は名前と同じ明朝体で一回り大きく。経歴は .card ul と同じ箇条書き */
+.profile-lead { margin: .9rem 0 0; font-family: var(--font-head); font-size: 1.12rem; line-height: 1.7; color: var(--green-dark); }
+.profile-sub { margin: 1.25rem 0 .4rem; font-size: 1rem; color: var(--green-dark); }
+.profile-career { margin: 0; padding-left: 1.2rem; font-size: .95rem; }
 
 /* 社長秘書AI：2つの働き方（PC版／スマホ版）。グリッドの外に置き、常に横幅いっぱい */
 .staff-secretary { margin: 0 0 1.5rem; display: flex; flex-direction: column; }
